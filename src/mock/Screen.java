@@ -2,48 +2,6 @@ package mock;
 
 public class Screen {
     public static void main(String[] args) {
-        // Start Menu de seleccion de productos
-        // System.out.println(
-        // "--------------------------------------------------------------------------------------------------------------------------------------------\n");
-        // System.out.println("Ingrese el número del producto a confeccionar o ingrese S
-        // para salir:\n");
-        // System.out.println(
-        // "--------------------------------------------------------------------------------------------------------------------------------------------\n");
-        // System.out.println(
-        // "1: SKU: 001 / Cant: 100 / Nombre: Billetera Madrid / Color: Negro / Modelo:
-        // Clásica / Género: Unisex / Tamaño: Standard / Precio: S/99.90");
-        // System.out.println(
-        // "--------------------------------------------------------------------------------------------------------------------------------------------");
-        // System.out.println(
-        // "2: SKU: 002 / Cant: 100 / Nombre: Casaca Chayanne / Color: Marrón / Modelo:
-        // Con broche / Género: Masculino / Tamaño: L / Precio: S/199.90");
-        // System.out.println(
-        // "--------------------------------------------------------------------------------------------------------------------------------------------");
-        // System.out.println(
-        // "3: SKU: 003 / Cant: 100 / Nombre: Bolso Agata / Color: Azul / Modelo: Bifold
-        // / Género: Femenino / Tamaño: Standard / Precio: S/119.90");
-        // System.out.println(
-        // "--------------------------------------------------------------------------------------------------------------------------------------------");
-        // System.out.println(
-        // "4: SKU: 004 / Cant: 100 / Nombre: Billetera Roma/ Color: Rojo / Modelo:
-        // Minimalista / Género: Unisex / Tamaño: Standard / Precio: S/59.90");
-        // System.out.println(
-        // "--------------------------------------------------------------------------------------------------------------------------------------------");
-        // System.out.println(
-        // "5: SKU: 005 / Cant: 100 / Nombre: Casaca Irlanda / Color: Verde / Modelo:
-        // Con cierre / Género: Masculino / Tamaño: XL / Precio: S/119.90");
-        // System.out.println(
-        // "--------------------------------------------------------------------------------------------------------------------------------------------");
-        // System.out.println(
-        // "6: SKU: 006 / Cant: 100 / Nombre: Cartera Barcelona / Color: Gris / Modelo:
-        // Trifold / Género: Femenino / Tamaño: Standard / Precio: S/80.00");
-        // System.out.println(
-        // "--------------------------------------------------------------------------------------------------------------------------------------------");
-        // System.out.println(
-        // "7: SKU: 007 / Cant: 100 / Nombre: Billetera R8 / Color: Café / Modelo: Con
-        // grabado / Género: Unisex / Tamaño: Standard / Precio: S/129.00");
-        // End Menu de seleccion de productos
-
         // Start Menu de bienvenida
         System.out.println("------------------------------------------------------------\n");
         System.out.println("Bienvenido a INTERNACIONAL CUEROS FERTELLO S.A.C.\n");
