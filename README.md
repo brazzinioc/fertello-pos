@@ -21,9 +21,7 @@ Todo el código de la aplicación se encuentra en el directorio **src**. Las par
 - _const_ - Carpeta de constantes
 - _enums_ - Carpeta de Listas enumeradas
 
-## Estructura principal de la aplicacion
-
-# Flujo de aplicacion:
+### Flujo de aplicacion:
 
 Se esta abordando el patron de arquictectura de software MVC (Model, View, Controller)
 
@@ -31,7 +29,7 @@ Se esta abordando el patron de arquictectura de software MVC (Model, View, Contr
 - **Vista (View)**: Es la interfaz de usuario que presenta los datos al usuario y recibe las interacciones del usuario. La vista muestra la información y presenta los elementos de la interfaz gráfica o de otra forma de presentación.
 - **Controlador (Controller)**: Actúa como intermediario entre el modelo y la vista, y maneja las solicitudes del usuario. Es responsable de interpretar las acciones del usuario, actualizar el modelo según sea necesario y actualizar la vista para reflejar los cambios en el modelo.
 
-# Ejemplo modulo de admin:
+#### Ejemplo modulo de admin:
 
 - admin/inventory/InventoryController.java
 - admin/inventory/InventoryModel.java
