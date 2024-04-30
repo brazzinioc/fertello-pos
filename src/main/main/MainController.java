@@ -2,8 +2,8 @@ package main.main;
 
 import main.admin.AdminController;
 import main.admin.AdminView;
-import main.production.ProductionController;
-import main.production.ProductionView;
+import main.confection.ConfectionController;
+import main.confection.ConfectionView;
 import main.sales.SaleController;
 import main.sales.SaleView;
 
@@ -26,8 +26,8 @@ public class MainController {
                 adminController.showAdminView();
                 break;
             case 2:
-                ProductionController productionController = new ProductionController();
-                ProductionView productionView = new ProductionView(productionController);
+                ConfectionController productionController = new ConfectionController();
+                ConfectionView productionView = new ConfectionView(productionController);
                 productionController.setView(productionView);
                 productionController.showProductionView();
                 break;

@@ -1,7 +1,7 @@
 package main.admin;
 
 import main.admin.inventory.InventoryController;
-import main.production.ProductionController;
+import main.confection.ConfectionController;
 import main.sales.SaleController;
 
 public class AdminController {
@@ -28,7 +28,7 @@ public class AdminController {
                 new InventoryController().showInventoryView();
                 break;
             case 2:
-                new ProductionController().showCreateProductView();
+                new ConfectionController().showCreateProductView();
                 break;
             case 3:
                 new SaleController().showReportSalesView();

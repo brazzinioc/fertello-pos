@@ -1,6 +1,6 @@
-package main.production;
+package main.confection;
 
-public class ProductionController {
+public class ConfectionController {
 
     public void showProductionView() {
         throw new UnsupportedOperationException("Unimplemented method 'showProductionView'");
@@ -10,7 +10,7 @@ public class ProductionController {
         throw new UnsupportedOperationException("Unimplemented method 'showCreateProductView'");
     }
 
-    public void setView(ProductionView productionView) {
+    public void setView(ConfectionView productionView) {
         throw new UnsupportedOperationException("Unimplemented method 'setView'");
     }
 
