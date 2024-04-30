@@ -36,12 +36,4 @@ public class AdminView {
         }
     }
 
-    public void showExitMessage() {
-        System.out.println("Sesión cerrada");
-    }
-
-    public void showInvalidOptionMessage() {
-        System.out.println("Opción no válida. Intente nuevamente.\n");
-    }
-
 }

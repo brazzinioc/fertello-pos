@@ -37,10 +37,10 @@ public class AdminController {
                 new SaleController().showSaleView();
                 break;
             case 0:
-                adminView.showExitMessage();
+                showExitMessage();
                 break;
             default:
-                adminView.showInvalidOptionMessage();
+                showInvalidOptionMessage();
                 break;
         }
     }
@@ -52,5 +52,4 @@ public class AdminController {
     public void showInvalidOptionMessage() {
         System.out.println("Opción no válida. Intente nuevamente.\n");
     }
-
 }
