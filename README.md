@@ -15,10 +15,36 @@ Internacional cueros FERTELLO es una empresa dedicada a la marroquinería, fabri
 Todo el código de la aplicación se encuentra en el directorio **src**. Las partes principales son:
 
 - _main_ - Clase principal de ejecucion del sistema
-- _modelos_ - Carpeta de Clases y modelos
-- _utilidades_ - Carpeta de Clases de utilidades
-- _servicios_ - Carpeta de Funcionalidad y logica de los modulos
+- _admin_ - Carpeta del modulo de administracion
+- _production_ - Carpeta del modulo de producion
+- _sales_ - Carpeta del modulo de ventas
+- _const_ - Carpeta de constantes
 - _enums_ - Carpeta de Listas enumeradas
+
+## Estructura principal de la aplicacion
+
+# Flujo de aplicacion:
+
+Se esta abordando el patron de arquictectura de software MVC (Model, View, Controller)
+
+- **Modelo (Model)**: Representa la estructura de datos y la lógica de negocio de la aplicación. Es responsable de manejar los datos y su manipulación, así como de aplicar las reglas de negocio.
+- **Vista (View)**: Es la interfaz de usuario que presenta los datos al usuario y recibe las interacciones del usuario. La vista muestra la información y presenta los elementos de la interfaz gráfica o de otra forma de presentación.
+- **Controlador (Controller)**: Actúa como intermediario entre el modelo y la vista, y maneja las solicitudes del usuario. Es responsable de interpretar las acciones del usuario, actualizar el modelo según sea necesario y actualizar la vista para reflejar los cambios en el modelo.
+
+# Ejemplo modulo de admin:
+
+- admin/inventory/InventoryController.java
+- admin/inventory/InventoryModel.java
+- admin/inventory/InventoryView.java
+
+- admin/product/ProductController.java
+- admin/product/ProductModel.java
+- admin/product/ProductView.java
+
+- admin/user/UserController.java
+- admin/user/UserModel.java
+- admin/user/UserView.java
+
 
 ## Control de versiones e implementación
 
