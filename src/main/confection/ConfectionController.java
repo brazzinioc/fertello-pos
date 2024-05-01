@@ -14,4 +14,9 @@ public class ConfectionController {
         throw new UnsupportedOperationException("Unimplemented method 'setView'");
     }
 
+    public void handleUserOption(int option) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'handleUserOption'");
+    }
+
 }

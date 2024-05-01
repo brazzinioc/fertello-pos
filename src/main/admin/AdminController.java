@@ -2,24 +2,15 @@ package main.admin;
 
 import main.admin.inventory.InventoryController;
 import main.confection.ConfectionController;
-import main.sales.SaleController;
+import main.sale.SaleController;
 
 public class AdminController {
-    private AdminView adminView;
-
-    public AdminController(AdminView adminView) {
-        this.adminView = adminView;
-    }
-
-    public AdminController() {
-    }
-
-    public void setView(AdminView adminView) {
-        this.adminView = adminView;
+    public AdminController(AdminModel adminModel) {
     }
 
     public void showAdminView() {
-        this.adminView.showViewAdmin();
+        AdminView adminView = new AdminView(this);
+        adminView.menu(AdminModel.getModule(), AdminModel.getItems());
     }
 
     public void handleUserOption(int option) {

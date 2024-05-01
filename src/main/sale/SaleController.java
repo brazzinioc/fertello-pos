@@ -1,4 +1,4 @@
-package main.sales;
+package main.sale;
 
 public class SaleController {
 

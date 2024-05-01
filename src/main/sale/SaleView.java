@@ -1,10 +1,10 @@
-package main.main;
+package main.sale;
 
 import main.utils.Helpers;
 
-public class MainView {
+public class SaleView {
 
-    public MainView(MainController controller) {
+    public SaleView(SaleController controller) {
     }
 
     public void menu(String moduleName, String[] menuItems) {

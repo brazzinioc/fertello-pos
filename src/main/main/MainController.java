@@ -1,11 +1,9 @@
 package main.main;
 
 import main.admin.AdminController;
-import main.admin.AdminView;
+import main.admin.AdminModel;
 import main.confection.ConfectionController;
-import main.confection.ConfectionView;
-import main.sales.SaleController;
-import main.sales.SaleView;
+import main.sale.SaleController;
 
 public class MainController {
     private MainView view;
@@ -20,28 +18,17 @@ public class MainController {
     public void handleUserOption(int option) {
         switch (option) {
             case 1:
-                AdminController adminController = new AdminController();
-                AdminView adminView = new AdminView(adminController);
-                adminController.setView(adminView);
+                AdminModel adminModel = new AdminModel();
+                AdminController adminController = new AdminController(adminModel);
                 adminController.showAdminView();
                 break;
             case 2:
-                ConfectionController productionController = new ConfectionController();
-                ConfectionView productionView = new ConfectionView(productionController);
-                productionController.setView(productionView);
-                productionController.showProductionView();
+                ConfectionController confectionController = new ConfectionController();
+                confectionController.showProductionView();
                 break;
             case 3:
                 SaleController saleController = new SaleController();
-                SaleView saleView = new SaleView(saleController);
-                saleController.setView(saleView);
                 saleController.showSaleView();
-                break;
-            case 0:
-                view.showExitMessage();
-                break;
-            default:
-                view.showInvalidOptionMessage();
                 break;
         }
     }
