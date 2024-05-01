@@ -1,6 +1,8 @@
 package main.admin;
 
-public class AdminModel {
+import main.utils.Model;
+
+public class AdminModel implements Model {
     private static final String module = "Administración";
     private static final String[] items = {
             "Inventario",
@@ -9,11 +11,11 @@ public class AdminModel {
             "Usuarios"
     };
 
-    public static String getModule() {
+    public String getModule() {
         return module;
     }
 
-    public static String[] getItems() {
+    public String[] getItems() {
         return items;
     }
 

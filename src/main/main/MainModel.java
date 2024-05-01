@@ -1,7 +1,9 @@
 
 package main.main;
 
-public class MainModel {
+import main.utils.Model;
+
+public class MainModel implements Model {
     private static final String module = "Seleccione un rol de usuario";
     private static final String[] items = {
             "Administración",
@@ -9,11 +11,11 @@ public class MainModel {
             "Ventas",
     };
 
-    public static String getModule() {
+    public String getModule() {
         return module;
     }
 
-    public static String[] getItems() {
+    public String[] getItems() {
         return items;
     }
 }

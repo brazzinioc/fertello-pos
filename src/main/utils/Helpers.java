@@ -35,7 +35,6 @@ public class Helpers {
         }
         System.out.println("0: Salir\n");
         System.out.println("------------------------------------------------------------\n");
-
-        return getIntInput("Ingrese su opción: \n");
+        return getIntInput("Ingrese su opción: ");
     }
 }

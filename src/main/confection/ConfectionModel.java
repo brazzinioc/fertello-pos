@@ -1,17 +1,19 @@
 package main.confection;
 
-public class ConfectionModel {
+import main.utils.Model;
+
+public class ConfectionModel implements Model {
     private static final String module = "Produccion";
     private static final String[] items = {
             "Confecionar producto",
             "Consulta de productos confeccionados",
     };
 
-    public static String getModule() {
+    public String getModule() {
         return module;
     }
 
-    public static String[] getItems() {
+    public String[] getItems() {
         return items;
     }
 }
