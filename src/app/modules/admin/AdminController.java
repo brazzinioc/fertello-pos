@@ -1,10 +1,10 @@
-package app.admin;
+package app.modules.admin;
 
-import app.MenuView;
+import app.router.RouterView;
 
 public class AdminController {
     private AdminModel adminModel;
-    private MenuView menuView;
+    private RouterView menuView;
 
     public void start() {
         String moduleName = adminModel.getModuleName();

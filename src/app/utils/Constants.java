@@ -16,9 +16,13 @@ public class Constants {
     public final static String ADMIN_CREATE_PRODUCT = "Crear nuevo producto";
     public final static String ADMIN_REPORT_SALE = "Reporte de Ventas";
     // Constants for the production menu
-    public final static String PRODUCTION_MODULE = "Producción";
+    public final static String MANUFACTURE_MODULE = "Producción";
+    public final static String MANUFACTURE_NEW_PRODUCT = "Confeccionar nuevo producto";
+    public final static String MANUFACTURE_READY_MADE_PRODUCT = "Consultar productos confeccionados";
     // Constants for the sales menu
     public final static String SALES_MODULE = "Ventas";
+    public final static String SALES_REGISTER = "Registro de Ventas";
+    public final static String SALES_CONSULTATION = "Consulta de Ventas";
     // Constants for the colors
     public final String RED = "Rojo";
     public final String GREEN = "Verde";

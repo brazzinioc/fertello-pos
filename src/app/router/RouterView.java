@@ -1,18 +1,17 @@
-package app;
+package app.router;
 
-import app.admin.AdminModel;
+import app.modules.admin.AdminModel;
+import app.modules.manufacture.ManufactureModel;
+import app.modules.sales.SalesModel;
 import app.utils.Constants;
 import app.utils.Helpers;
 
-public class MenuView {
+public class RouterView {
     private AdminModel adminModel;
+    private ManufactureModel manufactureModel;
+    private SalesModel salesModel;
 
-    public MenuView(AdminModel adminModel) {
-        this.adminModel = adminModel;
-    }
-
-    public MenuView() {
-
+    public RouterView() {
     }
 
     public int showOptions(String moduleName, String[] moduleItems) {
@@ -21,8 +20,17 @@ public class MenuView {
         System.out.println("------------------------------------------------------------\n");
         System.out.println(moduleName + "\n");
 
-        if (moduleName.equals(moduleName)) {
+        if (moduleName.equals(Constants.ADMIN_MODULE)) {
+            adminModel = new AdminModel();
             moduleItems = adminModel.getModuleItems();
+        }
+        if (moduleName.equals(Constants.MANUFACTURE_MODULE)) {
+            manufactureModel = new ManufactureModel();
+            moduleItems = manufactureModel.getModuleItems();
+        }
+        if (moduleName.equals(Constants.SALES_MODULE)) {
+            salesModel = new SalesModel();
+            moduleItems = salesModel.getModuleItems();
         }
 
         for (int i = 0; i < moduleItems.length; i++) {

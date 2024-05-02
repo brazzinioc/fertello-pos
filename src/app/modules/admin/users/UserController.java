@@ -1,4 +1,4 @@
-package app.users;
+package app.modules.admin.users;
 
 public class UserController {
 }

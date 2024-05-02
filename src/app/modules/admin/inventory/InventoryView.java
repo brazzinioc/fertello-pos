@@ -1,4 +1,4 @@
-package app.inventory;
+package app.modules.admin.inventory;
 
 public class InventoryView {
     public static class InventoryModel {

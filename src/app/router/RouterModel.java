@@ -1,10 +1,10 @@
-package app;
+package app.router;
 
 import app.utils.Constants;
 
-public class MenuModel {
+public class RouterModel {
     private String moduleName = Constants.APP_MENU;
-    private String[] moduleItems = { Constants.ADMIN_MODULE, Constants.PRODUCTION_MODULE, Constants.SALES_MODULE };
+    private String[] moduleItems = { Constants.ADMIN_MODULE, Constants.MANUFACTURE_MODULE, Constants.SALES_MODULE };
 
     public String getModuleName() {
         return moduleName;
