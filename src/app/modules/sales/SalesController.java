@@ -6,9 +6,14 @@ public class SalesController {
     private SalesModel salesModel;
     private RouterView menuView;
 
+    public SalesController(RouterView view) {
+        this.salesModel = new SalesModel();
+        this.menuView = view;
+    }
+
     public void start() {
-        String moduleName = salesModel.getModuleName();
         String[] moduleItems = salesModel.getModuleItems();
-        menuView.showOptions(moduleName, moduleItems);
+        menuView.setModuleItems(moduleItems);
+        menuView.showOptions();
     }
 }

@@ -1,27 +1,34 @@
 package app.router;
 
-import app.utils.Constants;
+import app.interfaces.Module;
+import app.modules.admin.AdminModule;
+import app.modules.manufacture.ManufactureModule;
+import app.modules.sales.SalesModule;
 
 public class RouterController {
-    private RouterView menuView;
-    private RouterModel menuModel;
+    private RouterView view;
+    private Module[] modules;
+    private RouterModel model;
 
-    public RouterController(RouterView menuView) {
-        this.menuView = menuView;
-        this.menuModel = new RouterModel();
+    public RouterController(RouterView view, RouterModel model) {
+        this.view = view;
+        this.model = model;
+        this.modules = new Module[] { new AdminModule(view), new ManufactureModule(view), new SalesModule(view) };
     }
 
     public void start() {
-        int choice;
-        String[] moduleNames = { Constants.ADMIN_MODULE, Constants.MANUFACTURE_MODULE, Constants.SALES_MODULE };
-        do {
-            String moduleName = menuModel.getModuleName();
-            String[] moduleItems = menuModel.getModuleItems();
-            choice = menuView.showOptions(moduleName, moduleItems);
-            if (choice > 0 && choice <= moduleNames.length) {
-                moduleName = moduleNames[choice - 1];
-                menuView.showOptions(moduleName, moduleItems);
+        int option = 0;
+        while (true) {
+            if (option == 0) {
+                view.setModuleName(model.getModuleName());
+                view.setModuleItems(model.getModuleItems());
+                option = view.showOptions();
+            } else if (option <= modules.length) {
+                modules[option - 1].start();
+                option = 0;
+            } else {
+                break;
             }
-        } while (choice != 0);
+        }
     }
 }

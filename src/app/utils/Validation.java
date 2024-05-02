@@ -2,10 +2,10 @@ package app.utils;
 
 import java.util.Scanner;
 
-public class Helpers {
+public class Validation {
     private static Scanner scanner = new Scanner(System.in);
 
-    public Helpers() {
+    public Validation() {
     }
 
     public static int getIntInput(String message) {
