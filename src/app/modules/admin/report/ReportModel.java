@@ -1,12 +1,17 @@
 package app.modules.admin.report;
 
+import app.router.base.BaseModel;
 import app.utils.Constants;
 
-public class ReportModel {
-    private String moduleName = Constants.ADMIN_MODULE + " / " + Constants.ADMIN_REPORT_SALE;
+public class ReportModel extends BaseModel {
 
+    @Override
     public String getModuleName() {
-        return moduleName;
+        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_REPORT_SALE;
     }
 
+    @Override
+    public String[] getModuleItems() {
+        throw new UnsupportedOperationException("Unimplemented method 'getModuleItems'");
+    }
 }

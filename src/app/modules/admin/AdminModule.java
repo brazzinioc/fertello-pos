@@ -16,7 +16,6 @@ public class AdminModule implements Module {
     private RouterView view;
 
     public AdminModule(RouterView view) {
-        new AdminController(view);
         this.adminModel = new AdminModel();
         this.inventoryModule = new InventoryModule(view);
         this.productModule = new ProductModule(view);

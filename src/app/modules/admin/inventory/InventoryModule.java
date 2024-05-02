@@ -8,7 +8,6 @@ public class InventoryModule implements Module {
     private RouterView view;
 
     public InventoryModule(RouterView view) {
-        new InventoryController(view);
         this.inventoryModel = new InventoryModel();
         this.view = view;
     }

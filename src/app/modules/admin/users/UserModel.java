@@ -1,16 +1,16 @@
 package app.modules.admin.users;
 
+import app.router.base.BaseModel;
 import app.utils.Constants;
 
-public class UserModel {
-    private String moduleName = Constants.ADMIN_MODULE + " / " + Constants.ADMIN_USERS;
-    private String[] moduleItems = { Constants.ADMIN_LIST_USER, Constants.ADMIN_CREATE_USER };
-
+public class UserModel extends BaseModel {
+    @Override
     public String getModuleName() {
-        return moduleName;
+        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_USERS;
     }
 
+    @Override
     public String[] getModuleItems() {
-        return moduleItems;
+        return new String[] { Constants.ADMIN_LIST_USER, Constants.ADMIN_CREATE_USER };
     }
 }

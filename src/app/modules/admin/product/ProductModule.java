@@ -8,7 +8,6 @@ public class ProductModule implements Module {
     private RouterView view;
 
     public ProductModule(RouterView view) {
-        new ProductController(view);
         this.productModel = new ProductModel();
         this.view = view;
     }

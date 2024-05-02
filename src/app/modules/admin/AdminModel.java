@@ -1,17 +1,18 @@
 package app.modules.admin;
 
+import app.router.base.BaseModel;
 import app.utils.Constants;
 
-public class AdminModel {
-    private String moduleName = Constants.ADMIN_MODULE;
-    private String[] moduleItems = { Constants.ADMIN_INVENTORY, Constants.ADMIN_CREATE_PRODUCT,
-            Constants.ADMIN_REPORT_SALE, Constants.ADMIN_USERS };
+public class AdminModel extends BaseModel {
 
+    @Override
     public String getModuleName() {
-        return moduleName;
+        return Constants.ADMIN_MODULE;
     }
 
+    @Override
     public String[] getModuleItems() {
-        return moduleItems;
+        return new String[] { Constants.ADMIN_INVENTORY, Constants.ADMIN_CREATE_PRODUCT,
+                Constants.ADMIN_REPORT_SALE, Constants.ADMIN_USERS };
     }
 }
