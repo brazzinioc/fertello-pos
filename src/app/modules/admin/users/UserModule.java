@@ -16,7 +16,6 @@ public class UserModule {
     public void start() {
         view.setModuleName(userModel.getModuleName());
         view.setModuleItems(userModel.getModuleItems());
-        int option = view.showOptions();
     }
 
 }
