@@ -15,10 +15,10 @@ public class AdminModule implements Module {
     }
 
     @Override
-    public void start() {
+    public boolean start() {
         view.setModuleName(adminModel.getModuleName());
         view.setModuleItems(adminModel.getModuleItems());
         view.showOptions();
-        adminController.start();
+        return adminController.start();
     }
 }

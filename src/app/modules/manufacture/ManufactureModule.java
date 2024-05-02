@@ -15,10 +15,10 @@ public class ManufactureModule implements Module {
     }
 
     @Override
-    public void start() {
+    public boolean start() {
         view.setModuleName(manufactureModel.getModuleName());
         view.setModuleItems(manufactureModel.getModuleItems());
         view.showOptions();
-        manufactureController.start();
+        return manufactureController.start();
     }
 }

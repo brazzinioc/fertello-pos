@@ -30,15 +30,8 @@ public class RouterView {
 
         System.out.println("0: " + Constants.APP_EXIT + "\n");
         System.out.println("------------------------------------------------------------\n");
-        return Validation.getIntInput(Constants.APP_CHOICE + ": ");
-    }
 
-    public void showModuleMenu(int userChoice) {
-        if (userChoice > 0 && userChoice <= moduleItems.length) {
-            System.out.println("------------------------------------------------------------\n");
-            System.out.println(moduleItems[userChoice - 1] + "\n");
-            System.out.println("------------------------------------------------------------\n");
-        }
+        return Validation.getIntInput(Constants.APP_CHOICE + ": ");
     }
 
 }

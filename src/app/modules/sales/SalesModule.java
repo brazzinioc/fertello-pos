@@ -15,11 +15,11 @@ public class SalesModule implements Module {
     }
 
     @Override
-    public void start() {
+    public boolean start() {
         view.setModuleName(salesModel.getModuleName());
         view.setModuleItems(salesModel.getModuleItems());
         view.showOptions();
-        salesController.start();
+        return salesController.start();
     }
 
 }

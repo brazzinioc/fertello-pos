@@ -11,9 +11,15 @@ public class SalesController {
         this.menuView = view;
     }
 
-    public void start() {
+    public boolean start() {
         String[] moduleItems = salesModel.getModuleItems();
         menuView.setModuleItems(moduleItems);
         menuView.showOptions();
+        while (true) {
+            int option = menuView.showOptions();
+            if (option == 0) {
+                return true;
+            }
+        }
     }
 }

@@ -11,9 +11,14 @@ public class ManufactureController {
         this.menuView = view;
     }
 
-    public void start() {
+    public boolean start() {
         String[] moduleItems = manufactureModel.getModuleItems();
         menuView.setModuleItems(moduleItems);
-        menuView.showOptions();
+        while (true) {
+            int option = menuView.showOptions();
+            if (option == 0) {
+                return true;
+            }
+        }
     }
 }
