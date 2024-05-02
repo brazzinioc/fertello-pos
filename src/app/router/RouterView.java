@@ -7,7 +7,15 @@ public class RouterView {
     public RouterView() {
     }
 
+    public void resetModels() {
+        adminModel = null;
+        manufactureModel = null;
+        salesModel = null;
+    }
+
     public int showOptions(String moduleName, String[] moduleItems) {
+        resetModels();
+
         System.out.println("------------------------------------------------------------\n");
         System.out.println(Constants.APP_NAME + "\n");
         System.out.println("------------------------------------------------------------\n");
@@ -22,5 +30,4 @@ public class RouterView {
 
         return Validation.getIntInput(Constants.APP_CHOICE + ": ");
     }
-
 }
