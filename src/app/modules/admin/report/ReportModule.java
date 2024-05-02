@@ -14,7 +14,9 @@ public class ReportModule implements Module {
 
     @Override
     public void start() {
-        view.setModuleName(reportModel.getModuleName());
+        String moduleName = reportModel.getModuleName();
+        String[] moduleItems = reportModel.getModuleItems();
+        view.showOptions(moduleName, moduleItems);
     }
 
 }

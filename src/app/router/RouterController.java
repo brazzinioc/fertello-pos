@@ -26,9 +26,7 @@ public class RouterController {
         int option = 0;
         while (true) {
             if (option == 0) {
-                view.setModuleName(model.getModuleName());
-                view.setModuleItems(model.getModuleItems());
-                option = view.showOptions();
+                option = view.showOptions(model.getModuleName(), model.getModuleItems());
             } else if (option <= modules.size()) {
                 modules.get(option - 1).start();
                 option = 0;

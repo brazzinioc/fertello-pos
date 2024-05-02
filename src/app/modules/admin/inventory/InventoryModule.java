@@ -14,7 +14,9 @@ public class InventoryModule implements Module {
 
     @Override
     public void start() {
-        view.setModuleName(inventoryModel.getModuleName());
+        String moduleName = inventoryModel.getModuleName();
+        String[] moduleItems = inventoryModel.getModuleItems();
+        view.showOptions(moduleName, moduleItems);
     }
 
 }

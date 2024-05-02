@@ -15,8 +15,8 @@ public class ManufactureController extends BaseController {
 
     @Override
     public void start() {
+        String moduleName = manufactureModel.getModuleName();
         String[] moduleItems = manufactureModel.getModuleItems();
-        menuView.setModuleItems(moduleItems);
-        menuView.showOptions();
+        menuView.showOptions(moduleName, moduleItems);
     }
 }

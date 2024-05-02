@@ -9,42 +9,34 @@ import app.router.RouterView;
 
 public class AdminModule implements Module {
     private AdminModel adminModel;
-    private InventoryModule inventoryModule;
-    private ProductModule productModule;
-    private ReportModule reportModule;
-    private UserModule userModule;
     private RouterView view;
 
     public AdminModule(RouterView view) {
         this.adminModel = new AdminModel();
-        this.inventoryModule = new InventoryModule(view);
-        this.productModule = new ProductModule(view);
-        this.reportModule = new ReportModule(view);
-        this.userModule = new UserModule(view);
         this.view = view;
     }
 
     @Override
     public void start() {
-        view.setModuleName(adminModel.getModuleName());
-        view.setModuleItems(adminModel.getModuleItems());
-        int option = view.showOptions();
+        String moduleName = adminModel.getModuleName();
+        String[] moduleItems = adminModel.getModuleItems();
+        int option = view.showOptions(moduleName, moduleItems);
         while (option != 0) {
             switch (option) {
                 case 1:
-                    inventoryModule.start();
+                    new InventoryModule(view).start();
                     break;
                 case 2:
-                    productModule.start();
+                    new ProductModule(view).start();
                     break;
                 case 3:
-                    reportModule.start();
+                    new ReportModule(view).start();
                     break;
                 case 4:
-                    userModule.start();
+                    new UserModule(view).start();
                     break;
             }
-            option = view.showOptions();
+            option = view.showOptions(moduleName, moduleItems);
         }
     }
 }

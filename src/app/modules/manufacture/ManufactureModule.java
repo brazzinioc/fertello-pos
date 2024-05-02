@@ -14,9 +14,9 @@ public class ManufactureModule implements Module {
 
     @Override
     public void start() {
-        view.setModuleName(manufactureModel.getModuleName());
-        view.setModuleItems(manufactureModel.getModuleItems());
-        int option = view.showOptions();
+        String moduleName = manufactureModel.getModuleName();
+        String[] moduleItems = manufactureModel.getModuleItems();
+        int option = view.showOptions(moduleName, moduleItems);
         switch (option) {
             case 1:
                 System.out.println("Confeccionar Producto");

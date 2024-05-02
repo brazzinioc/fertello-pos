@@ -15,8 +15,8 @@ public class SalesController extends BaseController {
 
     @Override
     public void start() {
+        String moduleName = salesModel.getModuleName();
         String[] moduleItems = salesModel.getModuleItems();
-        menuView.setModuleItems(moduleItems);
-        menuView.showOptions();
+        menuView.showOptions(moduleName, moduleItems);
     }
 }

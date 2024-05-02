@@ -15,8 +15,8 @@ public class AdminController extends BaseController {
 
     @Override
     public void start() {
+        String moduleName = adminModel.getModuleName();
         String[] moduleItems = adminModel.getModuleItems();
-        menuView.setModuleItems(moduleItems);
-        menuView.showOptions();
+        menuView.showOptions(moduleName, moduleItems);
     }
 }

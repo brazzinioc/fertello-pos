@@ -14,9 +14,9 @@ public class SalesModule implements Module {
 
     @Override
     public void start() {
-        view.setModuleName(salesModel.getModuleName());
-        view.setModuleItems(salesModel.getModuleItems());
-        int option = view.showOptions();
+        String moduleName = salesModel.getModuleName();
+        String[] moduleItems = salesModel.getModuleItems();
+        int option = view.showOptions(moduleName, moduleItems);
         switch (option) {
             case 1:
                 System.out.println("Registro de ventas");

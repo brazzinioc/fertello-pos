@@ -17,8 +17,6 @@ public class UserController extends BaseController {
     public void start() {
         String moduleName = userModel.getModuleName();
         String[] moduleItems = userModel.getModuleItems();
-        menuView.setModuleName(moduleName);
-        menuView.setModuleItems(moduleItems);
-        menuView.showOptions();
+        menuView.showOptions(moduleName, moduleItems);
     }
 }

@@ -16,7 +16,6 @@ public class ProductController extends BaseController {
     @Override
     public void start() {
         String moduleName = productModel.getModuleName();
-        menuView.setModuleName(moduleName);
-        menuView.showOptions();
+        menuView.showOptions(moduleName, null);
     }
 }

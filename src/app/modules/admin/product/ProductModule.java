@@ -14,6 +14,8 @@ public class ProductModule implements Module {
 
     @Override
     public void start() {
-        view.setModuleName(productModel.getModuleName());
+        String moduleName = productModel.getModuleName();
+        String[] moduleItems = productModel.getModuleItems();
+        view.showOptions(moduleName, moduleItems);
     }
 }

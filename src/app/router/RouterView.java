@@ -4,21 +4,10 @@ import app.utils.Constants;
 import app.utils.Validation;
 
 public class RouterView {
-    private String moduleName;
-    private String[] moduleItems;
-
     public RouterView() {
     }
 
-    public void setModuleItems(String[] moduleItems) {
-        this.moduleItems = moduleItems;
-    }
-
-    public void setModuleName(String moduleName) {
-        this.moduleName = moduleName;
-    }
-
-    public int showOptions() {
+    public int showOptions(String moduleName, String[] moduleItems) {
         System.out.println("------------------------------------------------------------\n");
         System.out.println(Constants.APP_NAME + "\n");
         System.out.println("------------------------------------------------------------\n");

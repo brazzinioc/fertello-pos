@@ -14,8 +14,9 @@ public class UserModule implements Module {
 
     @Override
     public void start() {
-        view.setModuleName(userModel.getModuleName());
-        view.setModuleItems(userModel.getModuleItems());
+        String moduleName = userModel.getModuleName();
+        String[] moduleItems = userModel.getModuleItems();
+        view.showOptions(moduleName, moduleItems);
     }
 
 }
