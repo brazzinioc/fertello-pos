@@ -12,6 +12,6 @@ public class ReportModel extends BaseModel {
 
     @Override
     public String[] getModuleItems() {
-        throw new UnsupportedOperationException("Unimplemented method 'getModuleItems'");
+        throw new UnsupportedOperationException("Unimplemented method" + Constants.ADMIN_REPORT_SALE);
     }
 }

@@ -11,6 +11,6 @@ public class ProductModel extends BaseModel {
 
     @Override
     public String[] getModuleItems() {
-        throw new UnsupportedOperationException("Unimplemented method 'getModuleItems'");
+        throw new UnsupportedOperationException("Unimplemented method" + Constants.ADMIN_CREATE_PRODUCT);
     }
 }
