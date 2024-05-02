@@ -1,16 +1,16 @@
 package app.modules.manufacture;
 
+import app.router.base.BaseModel;
 import app.utils.Constants;
 
-public class ManufactureModel {
-    private String moduleName = Constants.MANUFACTURE_MODULE;
-    private String[] moduleItems = { Constants.MANUFACTURE_NEW_PRODUCT, Constants.MANUFACTURE_READY_MADE_PRODUCT };
-
+public class ManufactureModel extends BaseModel {
+    @Override
     public String getModuleName() {
-        return moduleName;
+        return Constants.MANUFACTURE_MODULE;
     }
 
+    @Override
     public String[] getModuleItems() {
-        return moduleItems;
+        return new String[] { Constants.MANUFACTURE_NEW_PRODUCT, Constants.MANUFACTURE_READY_MADE_PRODUCT };
     }
 }

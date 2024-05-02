@@ -24,10 +24,8 @@ public class RouterView {
         System.out.println("------------------------------------------------------------\n");
         System.out.println(moduleName + "\n");
 
-        if (moduleItems != null) {
-            for (int i = 0; i < moduleItems.length; i++) {
-                System.out.println((i + 1) + ": " + moduleItems[i]);
-            }
+        for (int i = 0; i < moduleItems.length; i++) {
+            System.out.println((i + 1) + ": " + moduleItems[i]);
         }
 
         System.out.println("0: " + Constants.APP_EXIT + "\n");

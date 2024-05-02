@@ -8,7 +8,6 @@ public class ManufactureModule implements Module {
     private RouterView view;
 
     public ManufactureModule(RouterView view) {
-        new ManufactureController(view);
         this.manufactureModel = new ManufactureModel();
         this.view = view;
     }
@@ -25,7 +24,6 @@ public class ManufactureModule implements Module {
             case 2:
                 System.out.println("Consulta productos confeccionados");
                 break;
-            // ...
         }
     }
 }
