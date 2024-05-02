@@ -14,11 +14,7 @@ public class AdminController {
     public boolean start() {
         String[] moduleItems = adminModel.getModuleItems();
         menuView.setModuleItems(moduleItems);
-        while (true) {
-            int option = menuView.showOptions();
-            if (option == 0) {
-                return true;
-            }
-        }
+        menuView.showOptions();
+        return true;
     }
 }

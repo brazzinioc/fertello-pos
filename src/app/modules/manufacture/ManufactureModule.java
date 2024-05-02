@@ -4,21 +4,28 @@ import app.interfaces.Module;
 import app.router.RouterView;
 
 public class ManufactureModule implements Module {
-    private ManufactureController manufactureController;
     private ManufactureModel manufactureModel;
     private RouterView view;
 
     public ManufactureModule(RouterView view) {
-        this.manufactureController = new ManufactureController(view);
+        new ManufactureController(view);
         this.manufactureModel = new ManufactureModel();
         this.view = view;
     }
 
     @Override
-    public boolean start() {
+    public void start() {
         view.setModuleName(manufactureModel.getModuleName());
         view.setModuleItems(manufactureModel.getModuleItems());
-        view.showOptions();
-        return manufactureController.start();
+        int option = view.showOptions();
+        switch (option) {
+            case 1:
+                System.out.println("Confeccionar Producto");
+                break;
+            case 2:
+                System.out.println("Consulta productos confeccionados");
+                break;
+            // ...
+        }
     }
 }

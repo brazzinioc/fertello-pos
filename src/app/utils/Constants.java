@@ -15,6 +15,9 @@ public class Constants {
     public final static String ADMIN_INVENTORY = "Inventario";
     public final static String ADMIN_CREATE_PRODUCT = "Crear nuevo producto";
     public final static String ADMIN_REPORT_SALE = "Reporte de Ventas";
+    public final static String ADMIN_USERS = "Usuarios";
+    public final static String ADMIN_LIST_USER = "Lista de Usuarios";
+    public final static String ADMIN_CREATE_USER = "Crear nuevo usuario";
     // Constants for the production menu
     public final static String MANUFACTURE_MODULE = "Producción";
     public final static String MANUFACTURE_NEW_PRODUCT = "Confeccionar nuevo producto";

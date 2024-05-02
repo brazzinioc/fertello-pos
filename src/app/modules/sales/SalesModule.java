@@ -4,22 +4,28 @@ import app.interfaces.Module;
 import app.router.RouterView;
 
 public class SalesModule implements Module {
-    private SalesController salesController;
     private SalesModel salesModel;
     private RouterView view;
 
     public SalesModule(RouterView view) {
-        this.salesController = new SalesController(view);
+        new SalesController(view);
         this.salesModel = new SalesModel();
         this.view = view;
     }
 
     @Override
-    public boolean start() {
+    public void start() {
         view.setModuleName(salesModel.getModuleName());
         view.setModuleItems(salesModel.getModuleItems());
-        view.showOptions();
-        return salesController.start();
+        int option = view.showOptions();
+        switch (option) {
+            case 1:
+                System.out.println("Registro de ventas");
+                break;
+            case 2:
+                System.out.println("Consulta de ventas");
+                break;
+        }
     }
 
 }
