@@ -6,17 +6,26 @@ import app.router.base.BaseModel;
 
 public class ManufactureController extends BaseController {
     private ManufactureModel manufactureModel;
-    private RouterView menuView;
+    private RouterView view;
 
     public ManufactureController(RouterView view, BaseModel model) {
         super(view, model);
-        this.menuView = view;
+        this.view = view;
+        this.manufactureModel = (ManufactureModel) model;
     }
 
     @Override
     public void start() {
         String moduleName = manufactureModel.getModuleName();
         String[] moduleItems = manufactureModel.getModuleItems();
-        menuView.showOptions(moduleName, moduleItems);
+        int option = view.showOptions(moduleName, moduleItems);
+        switch (option) {
+            case 1:
+                System.out.println("Confeccionar Producto");
+                break;
+            case 2:
+                System.out.println("Consulta productos confeccionados");
+                break;
+        }
     }
 }

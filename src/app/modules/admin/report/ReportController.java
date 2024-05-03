@@ -6,16 +6,18 @@ import app.router.base.BaseModel;
 
 public class ReportController extends BaseController {
     private ReportModel reportModel;
-    private RouterView menuView;
+    private RouterView view;
 
     public ReportController(RouterView view, BaseModel model) {
         super(view, model);
-        this.menuView = view;
+        this.view = view;
+        this.reportModel = (ReportModel) model;
     }
 
     @Override
     public void start() {
         String moduleName = reportModel.getModuleName();
-        menuView.showOptions(moduleName, null);
+        String[] moduleItems = reportModel.getModuleItems();
+        view.showOptions(moduleName, moduleItems);
     }
 }

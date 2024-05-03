@@ -6,17 +6,18 @@ import app.router.base.BaseModel;
 
 public class UserController extends BaseController {
     private UserModel userModel;
-    private RouterView menuView;
+    private RouterView view;
 
     public UserController(RouterView view, BaseModel model) {
         super(view, model);
-        this.menuView = view;
+        this.view = view;
+        this.userModel = (UserModel) model;
     }
 
     @Override
     public void start() {
         String moduleName = userModel.getModuleName();
         String[] moduleItems = userModel.getModuleItems();
-        menuView.showOptions(moduleName, moduleItems);
+        view.showOptions(moduleName, moduleItems);
     }
 }

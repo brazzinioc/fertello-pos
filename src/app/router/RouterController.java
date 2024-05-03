@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.interfaces.Module;
-import app.modules.admin.AdminModule;
-import app.modules.manufacture.ManufactureModule;
-import app.modules.sales.SalesModule;
+import app.modules.admin.AdminController;
+import app.modules.admin.AdminModel;
+import app.modules.manufacture.ManufactureController;
+import app.modules.manufacture.ManufactureModel;
+import app.modules.sales.SalesController;
+import app.modules.sales.SalesModel;
 
 public class RouterController {
     private List<Module> modules;
@@ -17,9 +20,9 @@ public class RouterController {
         this.view = view;
         this.model = model;
         this.modules = new ArrayList<>();
-        this.modules.add(new AdminModule(view));
-        this.modules.add(new ManufactureModule(view));
-        this.modules.add(new SalesModule(view));
+        this.modules.add(new AdminController(view, new AdminModel()));
+        this.modules.add(new ManufactureController(view, new ManufactureModel()));
+        this.modules.add(new SalesController(view, new SalesModel()));
     }
 
     public void start() {

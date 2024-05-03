@@ -1,8 +1,9 @@
 package app.router.base;
 
+import app.interfaces.Module;
 import app.router.RouterView;
 
-public abstract class BaseController {
+public abstract class BaseController implements Module {
     protected BaseModel model;
     protected RouterView view;
 
