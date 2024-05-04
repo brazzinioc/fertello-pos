@@ -16,8 +16,8 @@ public class InventoryController extends BaseController {
 
     @Override
     public void start() {
-        String moduleName = inventoryModel.getModuleName();
-        String[] moduleItems = inventoryModel.getModuleItems();
+        String moduleName = inventoryModel.mainModuleName();
+        String[] moduleItems = inventoryModel.mainModuleItems();
         view.showOptions(moduleName, moduleItems);
     }
 }

@@ -35,24 +35,30 @@ public class UserModel extends BaseModel {
 
     @Override
     public String toString() {
-        return "Nombre: " + this.name + "\n" +
-                "Apellido: " + this.lastName + "\n" +
-                "Numero de documento de identidad: " + this.documentNumber + "\n" +
-                "Cargo: " + this.role.getDescription() + "\n";
+        return "Nombre: " + this.name + " " + this.lastName + " / DNI: " + this.documentNumber + " / Rol: "
+                + this.role.getDescription() + "\n";
+
     }
 
     @Override
-    public String getModuleName() {
+    public String mainModuleName() {
         return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_USERS;
     }
 
     @Override
-    public String getSubModuleName() {
-        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_USERS + " / " + Constants.ADMIN_CREATE_USER;
+    public String[] mainModuleItems() {
+        return new String[] { Constants.ADMIN_LIST_USER, Constants.ADMIN_CREATE_USER };
     }
 
     @Override
-    public String[] getModuleItems() {
-        return new String[] { Constants.ADMIN_LIST_USER, Constants.ADMIN_CREATE_USER };
+    public String navigationRouteOneName() {
+        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_USERS + " / " + Constants.ADMIN_LIST_USER;
     }
+
+    @Override
+    public String navigationRouteTwoName() {
+        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_USERS + " / " + Constants.ADMIN_CREATE_USER;
+
+    }
+
 }

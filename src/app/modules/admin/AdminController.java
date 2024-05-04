@@ -38,8 +38,8 @@ public class AdminController extends BaseController {
 
     @Override
     public void start() {
-        String moduleName = adminModel.getModuleName();
-        String[] moduleItems = adminModel.getModuleItems();
+        String moduleName = adminModel.mainModuleName();
+        String[] moduleItems = adminModel.mainModuleItems();
         int option = view.showOptions(moduleName, moduleItems);
         while (option != 0) {
             switch (option) {

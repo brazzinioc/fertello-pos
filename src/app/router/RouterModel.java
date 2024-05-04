@@ -6,11 +6,11 @@ public class RouterModel {
     private String moduleName = Constants.APP_MENU;
     private String[] moduleItems = { Constants.ADMIN_MODULE, Constants.MANUFACTURE_MODULE, Constants.SALES_MODULE };
 
-    public String getModuleName() {
+    public String mainModuleName() {
         return moduleName;
     }
 
-    public String[] getModuleItems() {
+    public String[] mainModuleItems() {
         return moduleItems;
     }
 

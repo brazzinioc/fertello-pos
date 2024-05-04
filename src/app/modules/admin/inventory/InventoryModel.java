@@ -5,12 +5,12 @@ import app.utils.Constants;
 
 public class InventoryModel extends BaseModel {
     @Override
-    public String getModuleName() {
+    public String mainModuleName() {
         return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_INVENTORY;
     }
 
     @Override
-    public String[] getModuleItems() {
+    public String[] mainModuleItems() {
         throw new UnsupportedOperationException("Unimplemented method" + Constants.ADMIN_INVENTORY);
     }
 }

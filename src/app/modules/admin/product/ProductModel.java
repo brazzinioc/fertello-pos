@@ -5,12 +5,12 @@ import app.utils.Constants;
 
 public class ProductModel extends BaseModel {
     @Override
-    public String getModuleName() {
+    public String mainModuleName() {
         return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_CREATE_PRODUCT;
     }
 
     @Override
-    public String[] getModuleItems() {
+    public String[] mainModuleItems() {
         throw new UnsupportedOperationException("Unimplemented method" + Constants.ADMIN_CREATE_PRODUCT);
     }
 }

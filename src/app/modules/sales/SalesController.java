@@ -16,8 +16,8 @@ public class SalesController extends BaseController {
 
     @Override
     public void start() {
-        String moduleName = salesModel.getModuleName();
-        String[] moduleItems = salesModel.getModuleItems();
+        String moduleName = salesModel.mainModuleName();
+        String[] moduleItems = salesModel.mainModuleItems();
         int option = view.showOptions(moduleName, moduleItems);
         switch (option) {
             case 1:

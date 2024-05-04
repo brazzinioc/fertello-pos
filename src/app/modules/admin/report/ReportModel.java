@@ -6,12 +6,12 @@ import app.utils.Constants;
 public class ReportModel extends BaseModel {
 
     @Override
-    public String getModuleName() {
+    public String mainModuleName() {
         return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_REPORT_SALE;
     }
 
     @Override
-    public String[] getModuleItems() {
+    public String[] mainModuleItems() {
         throw new UnsupportedOperationException("Unimplemented method" + Constants.ADMIN_REPORT_SALE);
     }
 }

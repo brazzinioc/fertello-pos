@@ -16,8 +16,8 @@ public class ReportController extends BaseController {
 
     @Override
     public void start() {
-        String moduleName = reportModel.getModuleName();
-        String[] moduleItems = reportModel.getModuleItems();
+        String moduleName = reportModel.mainModuleName();
+        String[] moduleItems = reportModel.mainModuleItems();
         view.showOptions(moduleName, moduleItems);
     }
 }

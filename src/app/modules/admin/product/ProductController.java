@@ -16,8 +16,8 @@ public class ProductController extends BaseController {
 
     @Override
     public void start() {
-        String moduleName = productModel.getModuleName();
-        String[] moduleItems = productModel.getModuleItems();
+        String moduleName = productModel.mainModuleName();
+        String[] moduleItems = productModel.mainModuleItems();
         view.showOptions(moduleName, moduleItems);
     }
 }

@@ -6,12 +6,12 @@ import app.utils.Constants;
 public class AdminModel extends BaseModel {
 
     @Override
-    public String getModuleName() {
+    public String mainModuleName() {
         return Constants.ADMIN_MODULE;
     }
 
     @Override
-    public String[] getModuleItems() {
+    public String[] mainModuleItems() {
         return new String[] { Constants.ADMIN_INVENTORY, Constants.ADMIN_CREATE_PRODUCT,
                 Constants.ADMIN_REPORT_SALE, Constants.ADMIN_USERS };
     }

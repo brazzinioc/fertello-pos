@@ -20,18 +20,22 @@ public class UserController extends BaseController {
 
     @Override
     public void start() {
-        String moduleName = userModel.getModuleName();
-        String subModuleName = userModel.getSubModuleName();
-        String[] moduleItems = userModel.getModuleItems();
+        String moduleName = userModel.mainModuleName();
+        String[] moduleItems = userModel.mainModuleItems();
+
+        String navigationRouteOneName = userModel.navigationRouteOneName();
+        String navigationRouteTwoName = userModel.navigationRouteTwoName();
+
         int option = view.showOptions(moduleName, moduleItems);
+
         while (option != 0) {
             switch (option) {
                 case 1:
                     List<UserModel> users = userModel.getUsers();
-                    userView.showUserList(users);
+                    userView.showUserList(users, navigationRouteOneName);
                     break;
                 case 2:
-                    UserModel newUser = userView.createUser(subModuleName);
+                    UserModel newUser = userView.createUser(navigationRouteTwoName);
                     userModel.addUser(newUser);
                     break;
             }

@@ -5,12 +5,12 @@ import app.utils.Constants;
 
 public class SalesModel extends BaseModel {
     @Override
-    public String getModuleName() {
+    public String mainModuleName() {
         return Constants.SALES_MODULE;
     }
 
     @Override
-    public String[] getModuleItems() {
+    public String[] mainModuleItems() {
         return new String[] { Constants.SALES_REGISTER, Constants.SALES_CONSULTATION };
     }
 }
