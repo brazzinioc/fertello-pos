@@ -3,12 +3,11 @@ package app.modules.admin.product;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.router.base.BaseModel;
 import app.utils.Colors;
-import app.utils.Constants;
 
-public class ProductModel extends BaseModel {
+public class ProductModel {
     private List<ProductModel> products;
+
     private boolean isToMade;
     private Colors color;
     private double sellPrice;
@@ -50,26 +49,4 @@ public class ProductModel extends BaseModel {
                 + this.sellPrice + " / Disponible: " + this.isToMade + "\n";
 
     }
-
-    @Override
-    public String mainModuleName() {
-        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_PRODUCT;
-    }
-
-    @Override
-    public String navigationRouteOneName() {
-        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_PRODUCT + " / " + Constants.ADMIN_INVENTARY_PRODUCT;
-    }
-
-    @Override
-    public String navigationRouteTwoName() {
-        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_PRODUCT + " / " + Constants.ADMIN_CREATE_PRODUCT;
-
-    }
-
-    @Override
-    public String[] mainModuleItems() {
-        return new String[] { Constants.ADMIN_INVENTARY_PRODUCT, Constants.ADMIN_CREATE_PRODUCT };
-    }
-
 }

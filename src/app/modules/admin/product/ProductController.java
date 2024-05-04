@@ -2,44 +2,48 @@ package app.modules.admin.product;
 
 import java.util.List;
 
+import app.interfaces.Module;
 import app.router.RouterView;
-import app.router.base.BaseController;
-import app.router.base.BaseModel;
+import app.utils.Constants;
 
-public class ProductController extends BaseController {
+public class ProductController implements Module {
     private ProductModel productModel;
     private ProductView productView;
     private RouterView view;
 
-    public ProductController(RouterView view, BaseModel model, ProductView productView) {
-        super(view, model);
+    public ProductController(RouterView view, ProductModel productModel) {
         this.view = view;
-        this.productModel = (ProductModel) model;
-        this.productView = productView;
+        this.productModel = productModel;
+        this.productView = new ProductView();
+    }
+
+    private String navigationRouteName(String item) {
+        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_PRODUCT + " / " + item;
+    }
+
+    private void handleOption(int option) {
+        switch (option) {
+            case 1:
+                List<ProductModel> products = productModel.getProducts();
+                productView.showProductList(products, navigationRouteName(Constants.ADMIN_INVENTARY_PRODUCT));
+                break;
+            case 2:
+                ProductModel newProduct = productView
+                        .createProduct(navigationRouteName(Constants.ADMIN_CREATE_PRODUCT));
+                productModel.addProduct(newProduct);
+                break;
+        }
     }
 
     @Override
     public void start() {
-        String moduleName = productModel.mainModuleName();
-        String[] moduleItems = productModel.mainModuleItems();
+        String moduleName = Constants.ADMIN_MODULE + " / " + Constants.ADMIN_PRODUCT;
+        String[] moduleItems = new String[] { Constants.ADMIN_INVENTARY_PRODUCT, Constants.ADMIN_CREATE_PRODUCT };
 
-        String navigationRouteOneName = productModel.navigationRouteOneName();
-        String navigationRouteTwoName = productModel.navigationRouteTwoName();
-
-        int option = view.showOptions(moduleName, moduleItems);
-
-        while (option != 0) {
-            switch (option) {
-                case 1:
-                    List<ProductModel> products = productModel.getProducts();
-                    productView.showProductList(products, navigationRouteOneName);
-                    break;
-                case 2:
-                    ProductModel newProduct = productView.createProduct(navigationRouteTwoName);
-                    productModel.addProduct(newProduct);
-                    break;
-            }
-            option = view.showOptions(moduleName, moduleItems);
-        }
+        int option;
+        do {
+            option = view.showModules(moduleName, moduleItems);
+            handleOption(option);
+        } while (option != 0);
     }
 }

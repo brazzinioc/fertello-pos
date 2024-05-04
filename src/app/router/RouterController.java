@@ -20,22 +20,22 @@ public class RouterController {
         this.view = view;
         this.model = model;
         this.modules = new ArrayList<>();
+        addModules();
+    }
+
+    private void addModules() {
         this.modules.add(new AdminController(view, new AdminModel()));
         this.modules.add(new ManufactureController(view, new ManufactureModel()));
         this.modules.add(new SalesController(view, new SalesModel()));
     }
 
     public void start() {
-        int option = 0;
-        while (true) {
-            if (option == 0) {
-                option = view.showOptions(model.mainModuleName(), model.mainModuleItems());
-            } else if (option <= modules.size()) {
+        int option;
+        do {
+            option = view.showModules(model.mainModuleName(), model.mainModuleItems());
+            if (option > 0 && option <= modules.size()) {
                 modules.get(option - 1).start();
-                option = 0;
-            } else {
-                break;
             }
-        }
+        } while (option != 0);
     }
 }

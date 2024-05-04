@@ -3,11 +3,9 @@ package app.modules.admin.users;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.router.base.BaseModel;
-import app.utils.Constants;
 import app.utils.Role;
 
-public class UserModel extends BaseModel {
+public class UserModel {
     private List<UserModel> users;
     private String name;
     private String lastName;
@@ -39,26 +37,4 @@ public class UserModel extends BaseModel {
                 + this.role.getDescription() + "\n";
 
     }
-
-    @Override
-    public String mainModuleName() {
-        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_USERS;
-    }
-
-    @Override
-    public String[] mainModuleItems() {
-        return new String[] { Constants.ADMIN_LIST_USER, Constants.ADMIN_CREATE_USER };
-    }
-
-    @Override
-    public String navigationRouteOneName() {
-        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_USERS + " / " + Constants.ADMIN_LIST_USER;
-    }
-
-    @Override
-    public String navigationRouteTwoName() {
-        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_USERS + " / " + Constants.ADMIN_CREATE_USER;
-
-    }
-
 }

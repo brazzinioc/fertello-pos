@@ -1,24 +1,19 @@
 package app.modules.manufacture;
 
+import app.interfaces.Module;
 import app.router.RouterView;
-import app.router.base.BaseController;
-import app.router.base.BaseModel;
+import app.utils.Constants;
 
-public class ManufactureController extends BaseController {
-    private ManufactureModel manufactureModel;
+public class ManufactureController implements Module {
     private RouterView view;
+    private ManufactureModel manufactureModel;
 
-    public ManufactureController(RouterView view, BaseModel model) {
-        super(view, model);
+    public ManufactureController(RouterView view, ManufactureModel manufactureModel) {
         this.view = view;
-        this.manufactureModel = (ManufactureModel) model;
+        this.manufactureModel = manufactureModel;
     }
 
-    @Override
-    public void start() {
-        String moduleName = manufactureModel.mainModuleName();
-        String[] moduleItems = manufactureModel.mainModuleItems();
-        int option = view.showOptions(moduleName, moduleItems);
+    private void handleOption(int option) {
         switch (option) {
             case 1:
                 System.out.println("Confeccionar Producto");
@@ -27,5 +22,18 @@ public class ManufactureController extends BaseController {
                 System.out.println("Consulta productos confeccionados");
                 break;
         }
+    }
+
+    @Override
+    public void start() {
+        String moduleName = Constants.MANUFACTURE_MODULE;
+        String[] moduleItems = new String[] { Constants.MANUFACTURE_NEW_PRODUCT,
+                Constants.MANUFACTURE_READY_MADE_PRODUCT };
+
+        int option;
+        do {
+            option = view.showModules(moduleName, moduleItems);
+            handleOption(option);
+        } while (option != 0);
     }
 }

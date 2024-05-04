@@ -1,24 +1,19 @@
 package app.modules.sales;
 
+import app.interfaces.Module;
 import app.router.RouterView;
-import app.router.base.BaseController;
-import app.router.base.BaseModel;
+import app.utils.Constants;
 
-public class SalesController extends BaseController {
-    private SalesModel salesModel;
+public class SalesController implements Module {
     private RouterView view;
+    private SalesModel salesModel;
 
-    public SalesController(RouterView view, BaseModel model) {
-        super(view, model);
+    public SalesController(RouterView view, SalesModel salesModel) {
         this.view = view;
-        this.salesModel = (SalesModel) model;
+        this.salesModel = salesModel;
     }
 
-    @Override
-    public void start() {
-        String moduleName = salesModel.mainModuleName();
-        String[] moduleItems = salesModel.mainModuleItems();
-        int option = view.showOptions(moduleName, moduleItems);
+    private void handleOption(int option) {
         switch (option) {
             case 1:
                 System.out.println("Registro de ventas");
@@ -27,5 +22,17 @@ public class SalesController extends BaseController {
                 System.out.println("Consulta de ventas");
                 break;
         }
+    }
+
+    @Override
+    public void start() {
+        String moduleName = Constants.SALES_MODULE;
+        String[] moduleItems = new String[] { Constants.SALES_REGISTER, Constants.SALES_CONSULTATION };
+
+        int option;
+        do {
+            option = view.showModules(moduleName, moduleItems);
+            handleOption(option);
+        } while (option != 0);
     }
 }

@@ -7,7 +7,7 @@ public class RouterView {
     public RouterView() {
     }
 
-    public int showOptions(String moduleName, String[] moduleItems) {
+    public int showModules(String moduleName, String[] moduleItems) {
         System.out.println("------------------------------------------------------------\n");
         System.out.println(Constants.APP_NAME + "\n");
         System.out.println("------------------------------------------------------------\n");

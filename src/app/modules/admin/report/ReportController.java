@@ -1,23 +1,28 @@
 package app.modules.admin.report;
 
+import app.interfaces.Module;
 import app.router.RouterView;
-import app.router.base.BaseController;
-import app.router.base.BaseModel;
+import app.utils.Constants;
 
-public class ReportController extends BaseController {
-    private ReportModel reportModel;
+public class ReportController implements Module {
     private RouterView view;
 
-    public ReportController(RouterView view, BaseModel model) {
-        super(view, model);
+    public ReportController(RouterView view, ReportModel reportModel) {
         this.view = view;
-        this.reportModel = (ReportModel) model;
+    }
+
+    private String navigationRouteName() {
+        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_REPORT_SALE;
     }
 
     @Override
     public void start() {
-        String moduleName = reportModel.mainModuleName();
-        String[] moduleItems = reportModel.mainModuleItems();
-        view.showOptions(moduleName, moduleItems);
+        String moduleName = navigationRouteName();
+        String[] moduleItems = new String[] { moduleName };
+
+        int option;
+        do {
+            option = view.showModules(moduleName, moduleItems);
+        } while (option != 0);
     }
 }
