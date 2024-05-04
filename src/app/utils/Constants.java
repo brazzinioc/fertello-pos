@@ -12,7 +12,8 @@ public class Constants {
     public final static String SALES_ROLE = "Asesor de ventas";
     // Constants for the admin menu
     public final static String ADMIN_MODULE = "Administración";
-    public final static String ADMIN_INVENTORY = "Inventario";
+    public final static String ADMIN_PRODUCT = "Productos";
+    public final static String ADMIN_INVENTARY_PRODUCT = "Inventario de Productos";
     public final static String ADMIN_CREATE_PRODUCT = "Crear nuevo producto";
     public final static String ADMIN_REPORT_SALE = "Reporte de Ventas";
     public final static String ADMIN_USERS = "Usuarios";
@@ -27,10 +28,9 @@ public class Constants {
     public final static String SALES_REGISTER = "Registro de Ventas";
     public final static String SALES_CONSULTATION = "Consulta de Ventas";
     // Constants for the colors
-    public final String RED = "Rojo";
-    public final String GREEN = "Verde";
-    public final String BLUE = "Azul";
-    public final String YELLOW = "Amarillo";
-    public final String BLACK = "Negro";
-    public final String WHITE = "Blanco";
+    public final static String RED = "Rojo";
+    public final static String GREEN = "Verde";
+    public final static String BLUE = "Azul";
+    public final static String BLACK = "Negro";
+    public final static String WHITE = "Blanco";
 }

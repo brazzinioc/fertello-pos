@@ -1,9 +1,8 @@
 package app.modules.admin;
 
-import app.modules.admin.inventory.InventoryController;
-import app.modules.admin.inventory.InventoryModel;
 import app.modules.admin.product.ProductController;
 import app.modules.admin.product.ProductModel;
+import app.modules.admin.product.ProductView;
 import app.modules.admin.report.ReportController;
 import app.modules.admin.report.ReportModel;
 import app.modules.admin.users.UserController;
@@ -17,20 +16,21 @@ public class AdminController extends BaseController {
     private AdminModel adminModel;
     private RouterView view;
 
-    private InventoryController inventoryController;
     private ProductController productController;
     private ReportController reportController;
     private UserController userController;
     private UserView userView;
+    private ProductView productView;
 
     public AdminController(RouterView view, BaseModel model) {
         super(view, model);
         this.view = view;
         this.adminModel = (AdminModel) model;
 
-        this.inventoryController = new InventoryController(view, new InventoryModel());
-        this.productController = new ProductController(view, new ProductModel());
         this.reportController = new ReportController(view, new ReportModel());
+
+        this.productView = new ProductView();
+        this.productController = new ProductController(view, new ProductModel(), productView);
 
         this.userView = new UserView();
         this.userController = new UserController(view, new UserModel(), userView);
@@ -44,15 +44,12 @@ public class AdminController extends BaseController {
         while (option != 0) {
             switch (option) {
                 case 1:
-                    inventoryController.start();
-                    break;
-                case 2:
                     productController.start();
                     break;
-                case 3:
+                case 2:
                     reportController.start();
                     break;
-                case 4:
+                case 3:
                     userController.start();
                     break;
             }

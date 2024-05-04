@@ -33,7 +33,7 @@ public class Validation {
         return value;
     }
 
-    public static int validateNumber(Scanner scanner, String input, int length) {
+    public static int validateNumberLength(Scanner scanner, String input, int length) {
         System.out.print(input + ": ");
         String value = scanner.nextLine();
         while (!value.matches("\\d{" + length + "}") || value.trim().isEmpty()) {
@@ -41,5 +41,29 @@ public class Validation {
             value = scanner.nextLine();
         }
         return Integer.parseInt(value);
+    }
+
+    public static int validateNumber(Scanner scanner, String input) {
+        System.out.print(input + ": ");
+        String value = scanner.nextLine();
+        while (!value.matches("\\d+") || value.trim().isEmpty()) {
+            System.out.print(input + " solo acepta números. Inténtalo de nuevo: ");
+            value = scanner.nextLine();
+        }
+        return Integer.parseInt(value);
+    }
+
+    public static boolean validateBoolean(Scanner scanner, String input) {
+        String value;
+        while (true) {
+            System.out.print(input + ": ");
+            value = scanner.nextLine().trim().toUpperCase();
+            if (value.equals("S") || value.equals("N")) {
+                break;
+            } else {
+                System.out.println(input + " debe ser 'S' para verdadero o 'N' para falso. Inténtalo de nuevo.");
+            }
+        }
+        return value.equals("S");
     }
 }

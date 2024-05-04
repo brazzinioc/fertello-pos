@@ -12,7 +12,6 @@ public class AdminModel extends BaseModel {
 
     @Override
     public String[] mainModuleItems() {
-        return new String[] { Constants.ADMIN_INVENTORY, Constants.ADMIN_CREATE_PRODUCT,
-                Constants.ADMIN_REPORT_SALE, Constants.ADMIN_USERS };
+        return new String[] { Constants.ADMIN_PRODUCT, Constants.ADMIN_REPORT_SALE, Constants.ADMIN_USERS };
     }
 }

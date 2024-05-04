@@ -33,7 +33,7 @@ public class UserView {
 
         String name = Validation.validateString(scanner, "Nombre");
         String lastName = Validation.validateString(scanner, "Apellido");
-        int documentNumber = Validation.validateNumber(scanner, "Número de documento", 8);
+        int documentNumber = Validation.validateNumberLength(scanner, "Número de documento", 8);
 
         System.out.print("Rol (A: " + Constants.ADMIN_ROLE + ", O: " + Constants.PRODUCTION_ROLE + ", V: "
                 + Constants.SALES_ROLE + "): ");
