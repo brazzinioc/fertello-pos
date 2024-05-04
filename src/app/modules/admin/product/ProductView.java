@@ -3,7 +3,9 @@ package app.modules.admin.product;
 import java.util.List;
 import java.util.Scanner;
 
-import app.utils.Colors;
+import app.enums.Colors;
+import app.enums.Genders;
+import app.enums.Sizes;
 import app.utils.Constants;
 import app.utils.Validation;
 
@@ -37,12 +39,19 @@ public class ProductView {
         System.out.print("Color: (R: " + Constants.RED + ", V: " + Constants.GREEN + ", A: " + Constants.BLUE + ", N: "
                 + Constants.BLACK + ", B: " + Constants.WHITE + "): ");
         Colors color = Colors.fromCode(scanner.nextLine().toUpperCase().charAt(0));
-        String size = Validation.validateString(scanner, "Tamaño");
+        System.out.print(
+                "Talla: (XL: " + Constants.XLARGE + ", L: " + Constants.LARGE + ", M: " + Constants.MEDIUM + ", S: "
+                        + Constants.SMALL + ", XS: " + "): ");
+        Sizes size = Sizes.fromCode(scanner.nextLine().toUpperCase().charAt(0));
+        System.out.print(
+                "Genero: (H: " + Constants.MALE + ", M: " + Constants.FEMALE + ", U: " + Constants.UNISEX + "): ");
+        Genders gender = Genders.fromCode(scanner.nextLine().toUpperCase().charAt(0));
         double sellPrice = Validation.validateNumber(scanner, "Precio de venta");
         int stock = Validation.validateNumberLength(scanner, "Cantidad", 3);
-        boolean isToMade = Validation.validateBoolean(scanner, "¿Es para fabricar? (S/N)");
+        boolean isToManufacture = Validation.validateBoolean(scanner, "¿Es para fabricar? (S/N)");
 
-        ProductModel newProduct = new ProductModel(sku, name, model, color, sellPrice, size, stock, isToMade);
+        ProductModel newProduct = new ProductModel(sku, name, model, color, sellPrice, size, stock, isToManufacture,
+                gender);
         System.out.println("Nuevo producto creado:\n" + newProduct);
         return newProduct;
     }

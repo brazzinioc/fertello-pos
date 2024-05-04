@@ -3,8 +3,8 @@ package app.modules.admin.users;
 import java.util.List;
 import java.util.Scanner;
 
+import app.enums.Roles;
 import app.utils.Constants;
-import app.utils.Role;
 import app.utils.Validation;
 
 public class UserView {
@@ -38,7 +38,7 @@ public class UserView {
         System.out.print("Rol (A: " + Constants.ADMIN_ROLE + ", O: " + Constants.PRODUCTION_ROLE + ", V: "
                 + Constants.SALES_ROLE + "): ");
 
-        Role role = Role.fromCode(scanner.nextLine().toUpperCase().charAt(0));
+        Roles role = Roles.fromCode(scanner.nextLine().toUpperCase().charAt(0));
         System.out.print("\n");
 
         UserModel newUser = new UserModel(name, lastName, documentNumber, role);

@@ -1,4 +1,6 @@
-package app.utils;
+package app.enums;
+
+import app.utils.Constants;
 
 public enum Colors {
     RED('R', Constants.RED),
@@ -21,7 +23,7 @@ public enum Colors {
                 return color;
             }
         }
-        throw new IllegalArgumentException("Color invalido intente nuevamente: " + code);
+        throw new IllegalArgumentException("Color no encontrado intente nuevamente: " + code);
     }
 
     public String getDescription() {

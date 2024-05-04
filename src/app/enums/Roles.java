@@ -1,6 +1,8 @@
-package app.utils;
+package app.enums;
 
-public enum Role {
+import app.utils.Constants;
+
+public enum Roles {
     ADMIN('A', Constants.ADMIN_ROLE),
     PRODUCTION('O', Constants.PRODUCTION_ROLE),
     SALES('V', Constants.SALES_ROLE);
@@ -8,13 +10,13 @@ public enum Role {
     private final char code;
     private final String description;
 
-    Role(char code, String description) {
+    Roles(char code, String description) {
         this.code = code;
         this.description = description;
     }
 
-    public static Role fromCode(char code) {
-        for (Role role : Role.values()) {
+    public static Roles fromCode(char code) {
+        for (Roles role : Roles.values()) {
             if (role.code == code) {
                 return role;
             }

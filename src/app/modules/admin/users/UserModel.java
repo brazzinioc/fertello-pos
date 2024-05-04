@@ -3,16 +3,16 @@ package app.modules.admin.users;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.utils.Role;
+import app.enums.Roles;
 
 public class UserModel {
     private List<UserModel> users;
     private String name;
     private String lastName;
     private int documentNumber;
-    private Role role;
+    private Roles role;
 
-    public UserModel(String name, String lastName, int documentNumber, Role role) {
+    public UserModel(String name, String lastName, int documentNumber, Roles role) {
         this.name = name;
         this.lastName = lastName;
         this.documentNumber = documentNumber;

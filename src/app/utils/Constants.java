@@ -33,4 +33,13 @@ public class Constants {
     public final static String BLUE = "Azul";
     public final static String BLACK = "Negro";
     public final static String WHITE = "Blanco";
+    // Constants for the Genders
+    public final static String MALE = "Hombre";
+    public final static String FEMALE = "Mujer";
+    public final static String UNISEX = "Unisex";
+    // Constants for the Sizes
+    public final static String XLARGE = "Extra grande";
+    public final static String MEDIUM = "Mediano";
+    public final static String SMALL = "Small";
+    public final static String LARGE = "Grande";
 }
