@@ -3,8 +3,8 @@ package app.enums;
 import app.utils.Constants;
 
 public enum Genders {
-    MALE('M', Constants.MALE),
-    FEMALE('F', Constants.FEMALE),
+    MALE('H', Constants.MALE),
+    FEMALE('M', Constants.FEMALE),
     UNISEX('U', Constants.UNISEX);
 
     private final char code;
