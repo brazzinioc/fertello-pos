@@ -9,7 +9,7 @@ public class Constants {
     // Constants for the roles
     public final static String ADMIN_ROLE = "Administrador";
     public final static String PRODUCTION_ROLE = "Operario de Producción";
-    public final static String SALES_ROLE = "Vendedor";
+    public final static String SALES_ROLE = "Asesor de ventas";
     // Constants for the admin menu
     public final static String ADMIN_MODULE = "Administración";
     public final static String ADMIN_INVENTORY = "Inventario";

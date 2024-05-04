@@ -8,6 +8,7 @@ import app.modules.admin.report.ReportController;
 import app.modules.admin.report.ReportModel;
 import app.modules.admin.users.UserController;
 import app.modules.admin.users.UserModel;
+import app.modules.admin.users.UserView;
 import app.router.RouterView;
 import app.router.base.BaseController;
 import app.router.base.BaseModel;
@@ -20,6 +21,7 @@ public class AdminController extends BaseController {
     private ProductController productController;
     private ReportController reportController;
     private UserController userController;
+    private UserView userView;
 
     public AdminController(RouterView view, BaseModel model) {
         super(view, model);
@@ -29,7 +31,9 @@ public class AdminController extends BaseController {
         this.inventoryController = new InventoryController(view, new InventoryModel());
         this.productController = new ProductController(view, new ProductModel());
         this.reportController = new ReportController(view, new ReportModel());
-        this.userController = new UserController(view, new UserModel());
+
+        this.userView = new UserView();
+        this.userController = new UserController(view, new UserModel(), userView);
     }
 
     @Override

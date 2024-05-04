@@ -23,4 +23,23 @@ public class Validation {
         return number;
     }
 
+    public static String validateString(Scanner scanner, String input) {
+        System.out.print(input + ": ");
+        String value = scanner.nextLine();
+        while (value.trim().isEmpty()) {
+            System.out.print(input + " no puede estar vacío. Inténtalo de nuevo: ");
+            value = scanner.nextLine();
+        }
+        return value;
+    }
+
+    public static int validateNumber(Scanner scanner, String input, int length) {
+        System.out.print(input + ": ");
+        String value = scanner.nextLine();
+        while (!value.matches("\\d{" + length + "}") || value.trim().isEmpty()) {
+            System.out.print(input + " solo acepta " + length + " números. Inténtalo de nuevo: ");
+            value = scanner.nextLine();
+        }
+        return Integer.parseInt(value);
+    }
 }
