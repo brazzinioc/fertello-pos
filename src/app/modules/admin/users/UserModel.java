@@ -20,6 +20,22 @@ public class UserModel {
         this.role = role;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
+    }
+
+    public void setDocumentNumber(int documentNumber) {
+        this.documentNumber = documentNumber;
+    }
+
     public UserModel() {
         this.users = new ArrayList<>();
     }

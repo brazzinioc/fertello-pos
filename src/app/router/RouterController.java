@@ -3,27 +3,42 @@ package app.router;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.enums.Roles;
 import app.interfaces.Module;
 import app.modules.admin.AdminController;
 import app.modules.admin.product.ProductModel;
+import app.modules.admin.users.UserModel;
 import app.modules.manufacture.ManufactureController;
 import app.modules.manufacture.ManufactureModel;
 import app.modules.sales.SalesController;
 import app.modules.sales.SalesModel;
+import app.utils.Constants;
 
 public class RouterController {
     private List<Module> modules;
     private RouterView view;
     private RouterModel model;
+    private UserModel userModel;
 
     public RouterController(RouterView view, RouterModel model) {
         this.view = view;
         this.model = model;
         this.modules = new ArrayList<>();
-        addModules();
+        this.userModel = new UserModel();
+        createDefaulUser();
+        handleModules();
     }
 
-    private void addModules() {
+    private void createDefaulUser() {
+        UserModel user = new UserModel();
+        userModel.setName("Admin");
+        userModel.setLastName("Admin");
+        userModel.setDocumentNumber(00000000);
+        userModel.setRole(Roles.valueOf(Constants.ADMIN_ROLE));
+        userModel.addUser(user);
+    }
+
+    private void handleModules() {
         ProductModel commonProductModel = new ProductModel();
         SalesModel commonSalesModel = new SalesModel();
         this.modules.add(new AdminController(view, commonProductModel, commonSalesModel));
