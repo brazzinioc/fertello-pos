@@ -24,6 +24,7 @@ public class SalesController implements Module {
             case 1:
                 List<ProductModel> listProductsAvailable = productModel.listProductsAvailable();
                 salesView.showProductsAvailable(listProductsAvailable,Constants.SALES_REGISTER);
+                salesView.findProductBySku(listProductsAvailable);
                 break;
             case 2:
                 System.out.println("Consulta de ventas");

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import app.modules.admin.product.ProductModel;
 import app.utils.Constants;
+import app.utils.Validation;
 
 public class SalesView {
     private Scanner scanner;
@@ -21,5 +22,22 @@ public class SalesView {
         for (int i = 0; i < listProductsAvailable.size(); i++) {
             System.out.println((i + 1) + ". " + listProductsAvailable.get(i).productSales());
         }
+
     }
+
+    public void findProductBySku (List<ProductModel> listProductsAvailable){
+        int sku = Validation.validateNumberLength(scanner, "Ingresa SKU", 4);
+        int quantity = Validation.validateNumberLength(scanner, "Ingresa la cantidad", 1);
+        for (int i = 0; i < listProductsAvailable.size(); i++) {
+            ProductModel product = listProductsAvailable.get(i);
+            if (product.getSku() == sku) {
+                double saleValue = product.getSellPrice() * quantity;
+                product.setStock(product.getStock() - quantity);
+                System.out.println("El valor de la venta es: " + saleValue);
+                return;
+            }
+        }
+        System.out.println("Producto no encontrado");
+    }
+
 }

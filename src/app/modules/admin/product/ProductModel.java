@@ -44,6 +44,18 @@ public class ProductModel {
     public int getStock() {
         return stock;
     }
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public int getSku() {
+        return sku;
+    }
+
+    public double getSellPrice() {
+        return sellPrice;
+    }
+
 
     public boolean isManufactured() {
         return isManufactured;
@@ -89,4 +101,7 @@ public class ProductModel {
                 + this.size.getDescription() + " / Precio: S/ "
                 + this.sellPrice + "\n";
     }
+
+
+
 }
