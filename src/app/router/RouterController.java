@@ -6,6 +6,7 @@ import java.util.List;
 import app.interfaces.Module;
 import app.modules.admin.AdminController;
 import app.modules.admin.AdminModel;
+import app.modules.admin.product.ProductModel;
 import app.modules.manufacture.ManufactureController;
 import app.modules.manufacture.ManufactureModel;
 import app.modules.sales.SalesController;
@@ -26,7 +27,7 @@ public class RouterController {
     private void addModules() {
         this.modules.add(new AdminController(view, new AdminModel()));
         this.modules.add(new ManufactureController(view, new ManufactureModel()));
-        this.modules.add(new SalesController(view, new SalesModel()));
+        this.modules.add(new SalesController(view,new ProductModel()));
     }
 
     public void start() {
