@@ -20,6 +20,22 @@ public class UserModel {
         this.role = role;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
+    }
+
+    public void setDocumentNumber(int documentNumber) {
+        this.documentNumber = documentNumber;
+    }
+
     public UserModel() {
         this.users = new ArrayList<>();
     }
@@ -30,6 +46,15 @@ public class UserModel {
 
     public void addUser(UserModel user) {
         this.users.add(user);
+    }
+
+    public UserModel searchUserByDocumentNumber(int documentNumber) {
+        for (UserModel user : this.users) {
+            if (user.documentNumber == documentNumber) {
+                return user;
+            }
+        }
+        return null;
     }
 
     @Override
