@@ -18,7 +18,7 @@ public class SalesModel {
     public SalesModel(List<ProductModel> products, double igvRate, double subTotal, double igv, double total, UserModel user) {
         this.products = products;
         this.igvRate = igvRate;
-        this.subTotal = subTot;
+        this.subTotal = subTotal;
         this.igv = igv;
         this.total = total;
         this.user = user;
