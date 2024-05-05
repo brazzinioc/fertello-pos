@@ -77,7 +77,7 @@ public class ProductModel {
     @Override
     public String toString() {
         return "SKU: " + this.sku
-                + " / Stock " + this.stock +
+                + " / Stock: " + this.stock +
                 " / Nombre: " + this.name
                 + " / Color: " + this.color.getDescription()
                 + " / Modelo: " + this.model
