@@ -12,7 +12,6 @@ import app.modules.manufacture.ManufactureController;
 import app.modules.manufacture.ManufactureModel;
 import app.modules.sales.SalesController;
 import app.modules.sales.SalesModel;
-import app.utils.Constants;
 
 public class RouterController {
     private List<Module> modules;
@@ -34,7 +33,7 @@ public class RouterController {
         userModel.setName("Admin");
         userModel.setLastName("Admin");
         userModel.setDocumentNumber(00000000);
-        userModel.setRole(Roles.valueOf(Constants.ADMIN_ROLE));
+        userModel.setRole(Roles.valueOf("ADMIN"));
         userModel.addUser(user);
     }
 
