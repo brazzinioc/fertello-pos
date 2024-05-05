@@ -9,6 +9,7 @@ import app.modules.admin.product.ProductModel;
 import app.modules.manufacture.ManufactureController;
 import app.modules.manufacture.ManufactureModel;
 import app.modules.sales.SalesController;
+import app.modules.sales.SalesModel;
 
 public class RouterController {
     private List<Module> modules;
@@ -24,9 +25,10 @@ public class RouterController {
 
     private void addModules() {
         ProductModel commonProductModel = new ProductModel();
-        this.modules.add(new AdminController(view, commonProductModel));
+        SalesModel commonSalesModel = new SalesModel();
+        this.modules.add(new AdminController(view, commonProductModel, commonSalesModel));
         this.modules.add(new ManufactureController(view, new ManufactureModel()));
-        this.modules.add(new SalesController(view, commonProductModel));
+        this.modules.add(new SalesController(view, commonProductModel, commonSalesModel));
     }
 
     public void start() {

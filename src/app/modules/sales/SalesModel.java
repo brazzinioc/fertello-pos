@@ -1,14 +1,27 @@
 package app.modules.sales;
 
+import app.modules.admin.product.ProductModel;
+import app.modules.admin.users.UserModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SalesModel {
-    private double prices;
     private List<SalesModel> sales;
+    private double igvRate;
+    private List<ProductModel> products;
+    private double subTotal;
+    private double igv;
+    private double total;
+    private UserModel user;
 
-    public SalesModel(double prices) {
-        this.prices = prices;
+    public SalesModel(List<ProductModel> products, double igvRate, double subTotal, double igv, double total, UserModel user) {
+        this.products = products;
+        this.igvRate = igvRate;
+        this.subTotal = subTot;
+        this.igv = igv;
+        this.total = total;
+        this.user = user;
     }
 
     public SalesModel() {
@@ -23,4 +36,7 @@ public class SalesModel {
         this.sales.add(sale);
     }
 
+    public String getDetails() {
+        return "Detalles de la venta aqui";
+    }
 }

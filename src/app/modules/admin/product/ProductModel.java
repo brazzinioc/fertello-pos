@@ -29,7 +29,8 @@ public class ProductModel {
             Sizes size,
             int stock,
             Genders gender,
-            boolean isManufactured) {
+            boolean isManufactured
+    ) {
         this.color = color;
         this.gender = gender;
         this.isManufactured = isManufactured;

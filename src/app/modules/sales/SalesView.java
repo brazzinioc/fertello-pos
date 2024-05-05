@@ -40,4 +40,14 @@ public class SalesView {
         System.out.println("Producto no encontrado");
     }
 
+    public void showSales(List<SalesModel> sales, String navigationRouteOneName, int userDocument) {
+        System.out.println("------------------------------------------------------------\n");
+        System.out.println(Constants.APP_NAME + "\n");
+        System.out.println("------------------------------------------------------------\n");
+        System.out.println(navigationRouteOneName + ":  \n");
+
+        for (SalesModel sale : sales) {
+            System.out.println(sale.getDetails());
+        }
+    }
 }
