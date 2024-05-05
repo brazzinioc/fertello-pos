@@ -22,17 +22,15 @@ public class AdminController implements Module {
     private UserController userController;
     private UserView userView;
 
-    public AdminController(RouterView view, ProductModel productModel, SalesModel salesModel ) {
+    public AdminController(RouterView view, ProductModel productModel, SalesModel salesModel, UserModel userModel) {
         this.view = view;
         this.reportController = new ReportController(view, new ReportView(), new ReportModel(), salesModel);
 
         new ProductView();
         // this.productController = new ProductController(view, new ProductModel());
-        this.productController = new ProductController(view, productModel );
-
-
+        this.productController = new ProductController(view, productModel);
         this.userView = new UserView();
-        this.userController = new UserController(view, new UserModel(), userView);
+        this.userController = new UserController(view, userModel, userView);
     }
 
     private void handleOption(int option) {

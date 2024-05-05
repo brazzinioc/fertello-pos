@@ -48,6 +48,15 @@ public class UserModel {
         this.users.add(user);
     }
 
+    public UserModel searchUserByDocumentNumber(int documentNumber) {
+        for (UserModel user : this.users) {
+            if (user.documentNumber == documentNumber) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Nombre: " + this.name + " " + this.lastName + " / DNI: " + this.documentNumber + " / Rol: "
