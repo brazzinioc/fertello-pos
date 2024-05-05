@@ -22,12 +22,14 @@ public class AdminController implements Module {
     private UserController userController;
     private UserView userView;
 
-    public AdminController(RouterView view, AdminModel model) {
+    public AdminController(RouterView view, ProductModel productModel ) {
         this.view = view;
         this.reportController = new ReportController(view, new ReportView(), new ReportModel(), new SalesModel()); //
 
         new ProductView();
-        this.productController = new ProductController(view, new ProductModel());
+        // this.productController = new ProductController(view, new ProductModel());
+        this.productController = new ProductController(view, productModel );
+
 
         this.userView = new UserView();
         this.userController = new UserController(view, new UserModel(), userView);

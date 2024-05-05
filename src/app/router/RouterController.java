@@ -25,9 +25,10 @@ public class RouterController {
     }
 
     private void addModules() {
-        this.modules.add(new AdminController(view, new AdminModel()));
+        ProductModel commonProductModel = new ProductModel();
+        this.modules.add(new AdminController(view, commonProductModel));
         this.modules.add(new ManufactureController(view, new ManufactureModel()));
-        this.modules.add(new SalesController(view,new ProductModel()));
+        this.modules.add(new SalesController(view, commonProductModel));
     }
 
     public void start() {
