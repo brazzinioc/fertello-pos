@@ -1,6 +1,7 @@
 package app.modules.manufacture;
 
 import app.interfaces.Module;
+import app.modules.admin.users.UserModel;
 import app.router.RouterView;
 import app.utils.Constants;
 
@@ -8,7 +9,7 @@ public class ManufactureController implements Module {
     private RouterView view;
     private ManufactureModel manufactureModel;
 
-    public ManufactureController(RouterView view, ManufactureModel manufactureModel) {
+    public ManufactureController(RouterView view, UserModel currentUser, ManufactureModel manufactureModel) {
         this.view = view;
         this.manufactureModel = manufactureModel;
     }

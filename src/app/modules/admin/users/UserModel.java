@@ -20,6 +20,10 @@ public class UserModel {
         this.role = role;
     }
 
+    public UserModel() {
+        this.users = new ArrayList<>();
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -32,12 +36,12 @@ public class UserModel {
         this.role = role;
     }
 
-    public void setDocumentNumber(int documentNumber) {
-        this.documentNumber = documentNumber;
+    public Roles getRole() {
+        return this.role;
     }
 
-    public UserModel() {
-        this.users = new ArrayList<>();
+    public void setDocumentNumber(int documentNumber) {
+        this.documentNumber = documentNumber;
     }
 
     public List<UserModel> getUsers() {
@@ -63,4 +67,5 @@ public class UserModel {
                 + this.role.getDescription() + "\n";
 
     }
+
 }
