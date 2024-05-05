@@ -29,8 +29,7 @@ public class ProductModel {
             Sizes size,
             int stock,
             Genders gender,
-            boolean isManufactured
-    ) {
+            boolean isManufactured) {
         this.color = color;
         this.gender = gender;
         this.isManufactured = isManufactured;
@@ -74,21 +73,20 @@ public class ProductModel {
         return availableProducts;
     }
 
-    @Override
-    public String toString() {
-        return "SKU: " + this.sku
-                + " / Stock: " + this.stock +
-                " / Nombre: " + this.name
-                + " / Color: " + this.color.getDescription()
-                + " / Modelo: " + this.model
-                + " / Genero: " + this.gender.getDescription()
-                + " / Talla: " + this.size.getDescription()
-                + " / Precio: S/ " + this.sellPrice
-                + " / Fabricado: " + this.isManufactured
+    public String productDetail() {
+        return "SKU: " + this.sku + " / Cant " + this.stock + " / Nombre: " + this.name + " / Color: "
+                + this.color.getDescription() + " / Modelo: " + this.model + " / Genero: "
+                + this.gender.getDescription() + " / Talla: "
+                + this.size.getDescription() + " / Precio: S/ "
+                + this.sellPrice + " / Fabricable: " + this.isManufactured
                 + "\n";
-
     }
 
-
-
+    public String productSales() {
+        return "SKU: " + this.sku + " / Cant " + this.stock + " / Nombre: " + this.name + " / Color: "
+                + this.color.getDescription() + " / Modelo: " + this.model + " / Genero: "
+                + this.gender.getDescription() + " / Talla: "
+                + this.size.getDescription() + " / Precio: S/ "
+                + this.sellPrice + "\n";
+    }
 }

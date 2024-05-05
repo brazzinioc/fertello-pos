@@ -19,7 +19,7 @@ public class SalesView {
         System.out.println("------------------------------------------------------------\n");
         System.out.println(navigationRouteOneName + ":  \n");
         for (int i = 0; i < listProductsAvailable.size(); i++) {
-            System.out.println((i + 1) + ". " + listProductsAvailable.get(i).toString());
+            System.out.println((i + 1) + ". " + listProductsAvailable.get(i).productSales());
         }
     }
 }
