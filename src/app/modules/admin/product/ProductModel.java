@@ -10,21 +10,23 @@ import app.enums.Sizes;
 public class ProductModel {
     private List<ProductModel> products;
 
+    private boolean isManufactured;
     private boolean isToManufacture;
     private Colors color;
     private double sellPrice;
+    private Genders gender;
     private int sku;
     private int stock;
+    private Sizes size;
     private String model;
     private String name;
-    private Genders gender;
-    private Sizes size;
-    private boolean isManufactured;
 
     public ProductModel(int sku, String name, String model, Colors color,
             double sellPrice, Sizes size, int stock,
             boolean isToManufacture, Genders gender, boolean isManufactured) {
         this.color = color;
+        this.gender = gender;
+        this.isManufactured = isToManufacture;
         this.isToManufacture = isToManufacture;
         this.model = model;
         this.name = name;
@@ -32,8 +34,14 @@ public class ProductModel {
         this.size = size;
         this.sku = sku;
         this.stock = stock;
-        this.gender = gender;
-        this.isManufactured = isToManufacture;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public boolean isToManufacture() {
+        return isToManufacture;
     }
 
     public ProductModel() {
@@ -69,11 +77,4 @@ public class ProductModel {
 
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public boolean isToManufacture() {
-        return isToManufacture;
-    }
 }
