@@ -20,6 +20,7 @@ public class RouterController {
     private UserModel userModel;
     private RouterView view;
     private RouterModel model;
+    private UserModel currentUser;
 
     public RouterController(RouterView view, RouterModel model) {
         this.view = view;
@@ -27,7 +28,6 @@ public class RouterController {
         this.modules = new ArrayList<>();
         this.userModel = new UserModel();
         createDefaulUser();
-        handleModules();
     }
 
     private void createDefaulUser() {
@@ -36,25 +36,37 @@ public class RouterController {
     }
 
     private void handleModules() {
+        System.out.println("Usuario: " + currentUser);
         ProductModel commonProductModel = new ProductModel();
         SalesModel commonSalesModel = new SalesModel();
-        this.modules.add(new AdminController(view, commonProductModel, commonSalesModel, userModel));
-        this.modules.add(new ManufactureController(view, new ManufactureModel()));
-        this.modules.add(new SalesController(view, commonProductModel, commonSalesModel));
+        if (currentUser.getRole() == Roles.ADMIN) {
+            this.modules.add(new AdminController(view, currentUser, commonProductModel, commonSalesModel, userModel));
+        } else if (currentUser.getRole() == Roles.SALES) {
+            this.modules.add(new SalesController(view, currentUser, commonProductModel, commonSalesModel));
+        } else if (currentUser.getRole() == Roles.PRODUCTION) {
+            this.modules.add(new ManufactureController(view, currentUser, new ManufactureModel()));
+        }
     }
 
     public void start() {
         int option;
-        int documentNumber = view.showWelcome(scanner);
-        if (userModel.searchUserByDocumentNumber(documentNumber) == null) {
-            System.out.println("Usuario no encontrado");
-        } else {
-            do {
-                option = view.showModules(model.mainModuleName(), model.mainModuleItems());
-                if (option > 0 && option <= modules.size()) {
-                    modules.get(option - 1).start();
-                }
-            } while (option != 0);
-        }
+        do {
+            int documentNumber = view.showWelcome(scanner);
+            UserModel foundUser = userModel.searchUserByDocumentNumber(documentNumber);
+            if (foundUser == null) {
+                System.out.println("Usuario no encontrado");
+                currentUser = null;
+            } else {
+                currentUser = foundUser;
+                handleModules();
+            }
+            option = view.showModules(model.mainModuleName(), model.mainModuleItems());
+            if (option == 0) {
+                System.out.println("Saliendo...");
+                currentUser = null;
+            } else if (currentUser != null && option > 0 && option <= modules.size()) {
+                modules.get(option - 1).start();
+            }
+        } while (true);
     }
 }
