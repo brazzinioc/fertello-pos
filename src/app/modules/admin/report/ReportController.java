@@ -29,13 +29,6 @@ public class ReportController implements Module {
     private void handleOption(int option) {
         switch (option) {
             case 1:
-                SalesModel venta1 = new SalesModel(2.45);
-
-                SalesModel venta2 = new SalesModel(3.45);
-
-                salesModel.addSale(venta1);
-                salesModel.addSale(venta2);
-
                 List<SalesModel> sales = salesModel.getSales();
                 ArrayList<String> reportData = reportModel.generateSalesReport(sales);
 

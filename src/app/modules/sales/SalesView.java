@@ -19,4 +19,15 @@ public class SalesView {
             System.out.println((i + 1) + ". " + listProductsAvailable.get(i).productSales());
         }
     }
+
+    public void showSales(List<SalesModel> sales, String navigationRouteOneName, int userDocument) {
+        System.out.println("------------------------------------------------------------\n");
+        System.out.println(Constants.APP_NAME + "\n");
+        System.out.println("------------------------------------------------------------\n");
+        System.out.println(navigationRouteOneName + ":  \n");
+
+        for (SalesModel sale : sales) {
+            System.out.println(sale.getDetails());
+        }
+    }
 }
