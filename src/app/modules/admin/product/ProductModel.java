@@ -51,7 +51,7 @@ public class ProductModel {
     public List<ProductModel> listProductsAvailable() {
         List<ProductModel> availableProducts = new ArrayList<>();
         for (ProductModel product : this.products) {
-            if (product.getStock() > 0 && product.isToManufacture()) {
+            if (product.getStock() > 0 && !product.isToManufacture() && product.isManufactured()) {
                 availableProducts.add(product);
             }
         }
@@ -75,5 +75,9 @@ public class ProductModel {
 
     public boolean isToManufacture() {
         return isToManufacture;
+    }
+
+    public boolean isManufactured() {
+        return isManufactured;
     }
 }
