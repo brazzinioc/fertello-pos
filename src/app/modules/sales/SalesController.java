@@ -1,22 +1,28 @@
 package app.modules.sales;
 
 import app.interfaces.Module;
+import app.modules.admin.product.ProductModel;
 import app.router.RouterView;
 import app.utils.Constants;
 
+import java.util.List;
+
 public class SalesController implements Module {
     private RouterView view;
-    private SalesModel salesModel;
+    private SalesView salesView;
+    private ProductModel productModel;
 
-    public SalesController(RouterView view, SalesModel salesModel) {
+    public SalesController(RouterView view, ProductModel productModel) {
         this.view = view;
-        this.salesModel = salesModel;
+        this.productModel = productModel;
+        this.salesView = new SalesView();
     }
 
     private void handleOption(int option) {
         switch (option) {
             case 1:
-                System.out.println("Registro de ventas");
+                List<ProductModel> listProductsAvailable = productModel.listProductsAvailable();
+                salesView.showProductsAvailable(listProductsAvailable,Constants.SALES_REGISTER);
                 break;
             case 2:
                 System.out.println("Consulta de ventas");

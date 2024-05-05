@@ -19,10 +19,11 @@ public class ProductModel {
     private String name;
     private Genders gender;
     private Sizes size;
+    private boolean isManufactured;
 
     public ProductModel(int sku, String name, String model, Colors color,
             double sellPrice, Sizes size, int stock,
-            boolean isToManufacture, Genders gender) {
+            boolean isToManufacture, Genders gender,boolean isManufactured) {
         this.color = color;
         this.isToManufacture = isToManufacture;
         this.model = model;
@@ -32,7 +33,9 @@ public class ProductModel {
         this.sku = sku;
         this.stock = stock;
         this.gender = gender;
+        this.isManufactured = isToManufacture;
     }
+
 
     public ProductModel() {
         this.products = new ArrayList<>();
@@ -45,6 +48,24 @@ public class ProductModel {
     public void addProduct(ProductModel product) {
         this.products.add(product);
     }
+    public List<ProductModel> listProductsAvailable (){
+        System.out.println("Entro aqui");
+        System.out.println(this.products);
+        System.out.println(this.getProducts());
+        List<ProductModel> availableProducts = new ArrayList<>();
+        for (ProductModel product : this.products){
+            System.out.println(product + "Product");
+            if(product.getStock() > 0 && product.isToManufacture()){
+               availableProducts.add(product);
+            }
+
+        }
+
+        return availableProducts;
+    }
+
+
+
 
     @Override
     public String toString() {
@@ -54,5 +75,13 @@ public class ProductModel {
                 + this.size.getDescription() + " / Precio: S/ "
                 + this.sellPrice + " / Disponible: " + this.isToManufacture + "\n";
 
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public boolean isToManufacture() {
+        return isToManufacture;
     }
 }

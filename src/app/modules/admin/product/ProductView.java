@@ -49,9 +49,9 @@ public class ProductView {
         double sellPrice = Validation.validateNumber(scanner, "Precio de venta");
         int stock = Validation.validateNumberLength(scanner, "Cantidad", 3);
         boolean isToManufacture = Validation.validateBoolean(scanner, "¿Es para fabricar? (S/N)");
-
+        boolean isManufactured = Validation.validateBoolean(scanner, " Esta fabricado (S/N)");
         ProductModel newProduct = new ProductModel(sku, name, model, color, sellPrice, size, stock, isToManufacture,
-                gender);
+                gender,isManufactured);
         System.out.println("Nuevo producto creado:\n" + newProduct);
         return newProduct;
     }
