@@ -6,9 +6,11 @@ import app.modules.admin.product.ProductModel;
 import app.modules.admin.product.ProductView;
 import app.modules.admin.report.ReportController;
 import app.modules.admin.report.ReportModel;
+import app.modules.admin.report.ReportView;
 import app.modules.admin.users.UserController;
 import app.modules.admin.users.UserModel;
 import app.modules.admin.users.UserView;
+import app.modules.sales.SalesModel;
 import app.router.RouterView;
 import app.utils.Constants;
 
@@ -22,7 +24,7 @@ public class AdminController implements Module {
 
     public AdminController(RouterView view, AdminModel model) {
         this.view = view;
-        this.reportController = new ReportController(view, new ReportModel());
+        this.reportController = new ReportController(view, new ReportView(), new ReportModel(), new SalesModel()); //
 
         new ProductView();
         this.productController = new ProductController(view, new ProductModel());
