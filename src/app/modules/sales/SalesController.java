@@ -6,6 +6,7 @@ import app.router.RouterView;
 import app.utils.Constants;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SalesController implements Module {
@@ -26,7 +27,22 @@ public class SalesController implements Module {
             case 1:
                 List<ProductModel> listProductsAvailable = productModel.listProductsAvailable();
                 salesView.showProductsAvailable(listProductsAvailable,Constants.SALES_REGISTER);
-                salesView.findProductBySku(listProductsAvailable);
+                ProductModel product = salesView.findProductBySku(listProductsAvailable);
+                if (product != null){
+                    int quantity = salesView.getProductQuantity();
+                    List<ProductModel> products = new ArrayList<>();
+                    products.add(product);
+                    SalesModel sale=new SalesModel(
+                            products,
+                            0.18,
+                            product.getSellPrice() * quantity,
+                            product.getSellPrice() * quantity * 0.18,
+                            (product.getSellPrice() * quantity)+(product.getSellPrice() * quantity * 0.18),
+
+
+
+                    );
+                }
                 salesView.showProductsAvailable(listProductsAvailable, Constants.SALES_REGISTER);
                 break;
             case 2:

@@ -39,4 +39,5 @@ public class SalesModel {
     public String getDetails() {
         return "Detalles de la venta aqui";
     }
+
 }
