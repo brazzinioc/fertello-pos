@@ -46,12 +46,13 @@ public class ProductView {
         System.out.print(
                 "Genero: (H: " + Constants.MALE + ", M: " + Constants.FEMALE + ", U: " + Constants.UNISEX + "): ");
         Genders gender = Genders.fromCode(scanner.nextLine().toUpperCase().charAt(0));
-        double sellPrice = Validation.validateNumber(scanner, "Precio de venta");
+        double sellPrice = Validation.validateDouble(scanner, "Precio de venta");
         int stock = Validation.validateNumberLength(scanner, "Cantidad", 3);
         boolean isToManufacture = Validation.validateBoolean(scanner, "¿Es para fabricar? (S/N)");
-        boolean isManufactured = Validation.validateBoolean(scanner, " Esta fabricado (S/N)");
+        boolean isManufactured = Validation.validateBoolean(scanner, "¿Esta fabricado? (S/N)");
+
         ProductModel newProduct = new ProductModel(sku, name, model, color, sellPrice, size, stock, isToManufacture,
-                gender,isManufactured);
+                gender, isManufactured);
         System.out.println("Nuevo producto creado:\n" + newProduct);
         return newProduct;
     }

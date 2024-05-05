@@ -64,6 +64,16 @@ public class Validation {
                 System.out.println(input + " debe ser 'S' para verdadero o 'N' para falso. Inténtalo de nuevo.");
             }
         }
-        return value.equals("S");
+        return value.equals("S") ? true : false;
+    }
+
+    public static double validateDouble(Scanner scanner, String string) {
+        System.out.print(string + ": ");
+        String value = scanner.nextLine();
+        while (!value.matches("\\d+(\\.\\d+)?") || value.trim().isEmpty()) {
+            System.out.print(string + " solo acepta números. Inténtalo de nuevo: ");
+            value = scanner.nextLine();
+        }
+        return Double.parseDouble(value);
     }
 }
