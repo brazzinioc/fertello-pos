@@ -7,6 +7,7 @@ import app.enums.Roles;
 
 public class UserModel {
     private List<UserModel> users;
+
     private String name;
     private String lastName;
     private int documentNumber;
