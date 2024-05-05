@@ -22,7 +22,7 @@ public class ProductView {
         System.out.println("------------------------------------------------------------\n");
         System.out.println(navigationRouteOneName + ":  \n");
         for (int i = 0; i < products.size(); i++) {
-            System.out.println((i + 1) + ". " + products.get(i).toString());
+            System.out.println((i + 1) + ". " + products.get(i).productDetail());
         }
     }
 
@@ -53,7 +53,10 @@ public class ProductView {
 
         ProductModel newProduct = new ProductModel(sku, name, model, color, sellPrice, size, stock, isToManufacture,
                 gender, isManufactured);
-        System.out.println("Nuevo producto creado:\n" + newProduct);
+
+        String details = newProduct.productDetail();
+        System.out.println("Nuevo producto creado:\n" + details);
+
         return newProduct;
     }
 }
