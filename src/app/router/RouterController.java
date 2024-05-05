@@ -5,12 +5,10 @@ import java.util.List;
 
 import app.interfaces.Module;
 import app.modules.admin.AdminController;
-import app.modules.admin.AdminModel;
 import app.modules.admin.product.ProductModel;
 import app.modules.manufacture.ManufactureController;
 import app.modules.manufacture.ManufactureModel;
 import app.modules.sales.SalesController;
-import app.modules.sales.SalesModel;
 
 public class RouterController {
     private List<Module> modules;
