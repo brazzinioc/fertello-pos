@@ -12,8 +12,6 @@ public class RouterModel {
     }
 
     public String[] mainModuleItems(Roles userRole) {
-        // return moduleItems;
-        System.out.println("Buscando modules items para userRole: " + userRole);
         switch (userRole) {
             case Roles.ADMIN:
                 return new String[] { Constants.ADMIN_MODULE };

@@ -1,12 +1,12 @@
 package app.modules.admin.report;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.interfaces.Module;
 import app.modules.sales.SalesModel;
 import app.router.RouterView;
 import app.utils.Constants;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ReportController implements Module {
     private RouterView view;
@@ -21,7 +21,6 @@ public class ReportController implements Module {
         this.salesModel = salesModel;
     }
 
-
     private String navigationRouteName() {
         return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_REPORT_SALE;
     }
@@ -31,9 +30,7 @@ public class ReportController implements Module {
             case 1:
                 List<SalesModel> sales = salesModel.getSales();
                 ArrayList<String> reportData = reportModel.generateSalesReport(sales);
-
                 reportView.showSalesReport(reportData, navigationRouteName());
-
                 break;
         }
     }

@@ -29,8 +29,7 @@ public class ProductModel {
             Sizes size,
             int stock,
             Genders gender,
-            boolean isManufactured
-    ) {
+            boolean isManufactured) {
         this.color = color;
         this.gender = gender;
         this.isManufactured = isManufactured;
@@ -45,6 +44,7 @@ public class ProductModel {
     public int getStock() {
         return stock;
     }
+
     public void setStock(int stock) {
         this.stock = stock;
     }
@@ -56,7 +56,6 @@ public class ProductModel {
     public double getSellPrice() {
         return sellPrice;
     }
-
 
     public boolean isManufactured() {
         return isManufactured;
@@ -102,7 +101,5 @@ public class ProductModel {
                 + this.size.getDescription() + " / Precio: S/ "
                 + this.sellPrice + "\n";
     }
-
-
 
 }
