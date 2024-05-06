@@ -18,12 +18,14 @@ public class SalesController implements Module {
     private SalesView salesView;
     private SalesModel salesModel;
     private ProductModel productModel;
+    private UserModel currentUser;
 
     public SalesController(RouterView view, UserModel currentUser, ProductModel productModel, SalesModel salesModel) {
         this.view = view;
         this.productModel = productModel;
         this.salesModel = salesModel;
         this.salesView = new SalesView();
+        this.currentUser = currentUser;
     }
 
     private void handleOption(int option) {
@@ -36,16 +38,17 @@ public class SalesController implements Module {
                     int quantity = salesView.getProductQuantity();
                     List<ProductModel> products = new ArrayList<>();
                     products.add(product);
-                    SalesModel sale=new SalesModel(
+                    SalesModel sale = new SalesModel(
                             products,
                             0.18,
                             product.getSellPrice() * quantity,
                             product.getSellPrice() * quantity * 0.18,
                             (product.getSellPrice() * quantity)+(product.getSellPrice() * quantity * 0.18),
-
-
-
+                            this.currentUser
                     );
+                    this.salesModel.addSale(sale);
+                    System.out.println("Venta creada: " + sale);
+                    System.out.println(this.salesModel.getSales());
                 }
                 salesView.showProductsAvailable(listProductsAvailable, Constants.SALES_REGISTER);
                 break;
@@ -59,6 +62,7 @@ public class SalesController implements Module {
 
     @Override
     public void start() {
+        System.out.println("SalesController start");
         String moduleName = Constants.SALES_MODULE;
         String[] moduleItems = new String[] { Constants.SALES_REGISTER, Constants.SALES_CONSULTATION };
 

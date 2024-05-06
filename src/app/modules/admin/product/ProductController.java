@@ -31,11 +31,11 @@ public class ProductController implements Module {
                 productView.showProductList(products, navigationRouteName(Constants.ADMIN_INVENTARY_PRODUCT));
                 break;
             case 2:
-                // productModel.addProduct(new ProductModel(1, "Producto 1", "Modelo 1", Colors.RED, 100.0, Sizes.MEDIUM, 10, Genders.UNISEX, true));
-                // productModel.addProduct(new ProductModel(2, "Producto 2", "Modelo 2", Colors.BLUE, 200.0, Sizes.LARGE, 0, Genders.UNISEX, true));
-                // productModel.addProduct(new ProductModel(3, "Producto 3", "Modelo 3", Colors.GREEN, 300.0, Sizes.SMALL, 5, Genders.UNISEX, false));
-                ProductModel newProduct = productView.createProduct(navigationRouteName(Constants.ADMIN_CREATE_PRODUCT));
-                productModel.addProduct(newProduct);
+                 productModel.addProduct(new ProductModel(1, "Producto 1", "Modelo 1", Colors.RED, 100.0, Sizes.MEDIUM, 10, Genders.UNISEX, true));
+                 productModel.addProduct(new ProductModel(2, "Producto 2", "Modelo 2", Colors.BLUE, 200.0, Sizes.LARGE, 0, Genders.UNISEX, true));
+                 productModel.addProduct(new ProductModel(3, "Producto 3", "Modelo 3", Colors.GREEN, 300.0, Sizes.SMALL, 5, Genders.UNISEX, false));
+//                ProductModel newProduct = productView.createProduct(navigationRouteName(Constants.ADMIN_CREATE_PRODUCT));
+//                productModel.addProduct(newProduct);
                 break;
         }
     }
