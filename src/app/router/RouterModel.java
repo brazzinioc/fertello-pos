@@ -13,11 +13,11 @@ public class RouterModel {
 
     public String[] mainModuleItems(Roles userRole) {
         switch (userRole) {
-            case Roles.ADMIN:
+            case ADMIN:
                 return new String[] { Constants.ADMIN_MODULE };
-            case Roles.PRODUCTION:
+            case PRODUCTION:
                 return new String[] { Constants.MANUFACTURE_MODULE };
-            case Roles.SALES:
+            case SALES:
                 return new String[] { Constants.SALES_MODULE };
             default:
                 return new String[] {};
