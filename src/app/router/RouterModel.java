@@ -13,11 +13,4 @@ public class RouterModel {
     public String[] mainModuleItems() {
         return moduleItems;
     }
-
-    public void showMainMenu() {
-        System.out.println(moduleName);
-        for (int i = 0; i < moduleItems.length; i++) {
-            System.out.println((i + 1) + ". " + moduleItems[i]);
-        }
-    }
 }
