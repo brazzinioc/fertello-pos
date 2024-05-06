@@ -50,6 +50,7 @@ public class AdminController implements Module {
 
     @Override
     public void start() {
+        System.out.println("AdminController start");
         String moduleName = Constants.ADMIN_MODULE;
         String[] moduleItems = new String[] { Constants.ADMIN_PRODUCT, Constants.ADMIN_REPORT_SALE,
                 Constants.ADMIN_USERS };

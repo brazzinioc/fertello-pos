@@ -27,6 +27,7 @@ public class ManufactureController implements Module {
 
     @Override
     public void start() {
+        System.out.println("ManufactureController start");
         String moduleName = Constants.MANUFACTURE_MODULE;
         String[] moduleItems = new String[] { Constants.MANUFACTURE_NEW_PRODUCT,
                 Constants.MANUFACTURE_READY_MADE_PRODUCT };

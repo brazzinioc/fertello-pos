@@ -32,6 +32,18 @@ public class UserModel {
         this.lastName = lastName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDocumentNumber() {
+        return documentNumber;
+    }
+
     public void setRole(Roles role) {
         this.role = role;
     }
