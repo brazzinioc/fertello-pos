@@ -1,9 +1,9 @@
 package app.modules.admin.report;
 
-import app.modules.sales.SalesModel;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import app.modules.sales.SalesModel;
 
 public class ReportModel {
     public ReportModel() {

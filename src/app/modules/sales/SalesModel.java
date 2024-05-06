@@ -1,10 +1,10 @@
 package app.modules.sales;
 
-import app.modules.admin.product.ProductModel;
-import app.modules.admin.users.UserModel;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import app.modules.admin.product.ProductModel;
+import app.modules.admin.users.UserModel;
 
 public class SalesModel {
     private List<SalesModel> sales;
@@ -15,7 +15,8 @@ public class SalesModel {
     private double total;
     private UserModel user;
 
-    public SalesModel(List<ProductModel> products, double igvRate, double subTotal, double igv, double total, UserModel user) {
+    public SalesModel(List<ProductModel> products, double igvRate, double subTotal, double igv, double total,
+            UserModel user) {
         this.products = products;
         this.igvRate = igvRate;
         this.subTotal = subTotal;

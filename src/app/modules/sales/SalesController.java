@@ -1,5 +1,6 @@
 package app.modules.sales;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import app.interfaces.Module;
@@ -7,11 +8,6 @@ import app.modules.admin.product.ProductModel;
 import app.modules.admin.users.UserModel;
 import app.router.RouterView;
 import app.utils.Constants;
-
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class SalesController implements Module {
     private RouterView view;
@@ -32,9 +28,9 @@ public class SalesController implements Module {
         switch (option) {
             case 1:
                 List<ProductModel> listProductsAvailable = productModel.listProductsAvailable();
-                salesView.showProductsAvailable(listProductsAvailable,Constants.SALES_REGISTER);
+                salesView.showProductsAvailable(listProductsAvailable, Constants.SALES_REGISTER);
                 ProductModel product = salesView.findProductBySku(listProductsAvailable);
-                if (product != null){
+                if (product != null) {
                     int quantity = salesView.getProductQuantity();
                     List<ProductModel> products = new ArrayList<>();
                     products.add(product);
@@ -43,9 +39,8 @@ public class SalesController implements Module {
                             0.18,
                             product.getSellPrice() * quantity,
                             product.getSellPrice() * quantity * 0.18,
-                            (product.getSellPrice() * quantity)+(product.getSellPrice() * quantity * 0.18),
-                            this.currentUser
-                    );
+                            (product.getSellPrice() * quantity) + (product.getSellPrice() * quantity * 0.18),
+                            this.currentUser);
                     this.salesModel.addSale(sale);
                     System.out.println("Venta creada: " + sale);
                     System.out.println(this.salesModel.getSales());
@@ -53,7 +48,7 @@ public class SalesController implements Module {
                 salesView.showProductsAvailable(listProductsAvailable, Constants.SALES_REGISTER);
                 break;
             case 2:
-                System.out.println("..... consultando ventas.......");
+                System.out.println(Constants.SALES_CONSULTATION);
                 List<SalesModel> sales = salesModel.getSales();
                 salesView.showSales(sales, "Mis Ventas", 70541090);
                 break;
@@ -62,7 +57,6 @@ public class SalesController implements Module {
 
     @Override
     public void start() {
-        System.out.println("SalesController start");
         String moduleName = Constants.SALES_MODULE;
         String[] moduleItems = new String[] { Constants.SALES_REGISTER, Constants.SALES_CONSULTATION };
 

@@ -1,11 +1,9 @@
 package app.modules.admin.report;
 
-import app.modules.sales.SalesModel;
-import app.utils.Constants;
-
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+
+import app.utils.Constants;
 
 public class ReportView {
     private Scanner scanner;
