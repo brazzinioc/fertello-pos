@@ -34,8 +34,6 @@ public class RouterController {
     }
 
     private void handleModules(UserModel currentUser) {
-        // ProductModel commonProductModel = new ProductModel();
-        // SalesModel commonSalesModel = new SalesModel();
         switch (currentUser.getRole()) {
             case ADMIN:
                 this.modules.add(new AdminController(view, currentUser, commonProductModel, commonSalesModel, userModel));
