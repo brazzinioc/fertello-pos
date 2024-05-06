@@ -8,25 +8,24 @@ import app.modules.admin.users.UserModel;
 
 public class SalesModel {
     private List<SalesModel> sales;
-    private double igvRate;
+    private double IGVRate;
     private List<ProductModel> products;
     private double subTotal;
-    private double igv;
+    private double IGV;
     private double total;
     private UserModel seller;
 
     public SalesModel(
             List<ProductModel> products,
-            double igvRate,
+            double IGVRate,
             double subTotal,
-            double igv,
+            double IGV,
             double total,
-            UserModel seller
-    ) {
+            UserModel seller) {
         this.products = products;
-        this.igvRate = igvRate;
+        this.IGVRate = IGVRate;
         this.subTotal = subTotal;
-        this.igv = igv;
+        this.IGV = IGV;
         this.total = total;
         this.seller = seller;
     }
@@ -54,21 +53,18 @@ public class SalesModel {
                 salesBySeller.add(sale);
             }
         }
-
         return salesBySeller;
     }
 
     public String getDetails() {
         String productsDetails = "";
-
         for (ProductModel product : products) {
-            productsDetails += "\t" + product.productDetail();
+            productsDetails += product.productSales();
         }
-
         return "Productos: \n" + productsDetails +
-                "Subtotal: S/ " + this.subTotal + "\n" +
-                "IGV: S/ " + this.igv + "\n" +
-                "Total: S/ " + this.total + "\n" +
+                "Subtotal: S/ " + String.format("%.2f", this.subTotal) + "\n" +
+                "IGV: S/ " + String.format("%.2f", this.IGV) + "\n" +
+                "Total: S/ " + String.format("%.2f", this.total) + "\n" +
                 "Vendedor: " + seller.getName() + " " + seller.getLastName() + "\n";
     }
 

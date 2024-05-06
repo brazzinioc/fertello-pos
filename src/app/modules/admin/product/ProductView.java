@@ -54,7 +54,7 @@ public class ProductView {
 
         double sellPrice = Validation.validateDouble(scanner, "Precio de venta");
 
-        int stock = Validation.validateNumberLength(scanner, "Cantidad", 3);
+        int stock = Validation.validateNumber(scanner, "Cantidad");
 
         boolean isManufactured = Validation.validateBoolean(scanner, "¿Esta fabricado? (S/N)");
 
