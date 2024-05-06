@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import app.enums.Roles;
 import app.interfaces.Module;
 import app.modules.admin.AdminController;
 import app.modules.admin.product.ProductModel;
@@ -35,14 +34,13 @@ public class RouterController {
         ProductModel commonProductModel = new ProductModel();
         SalesModel commonSalesModel = new SalesModel();
         switch (currentUser.getRole()) {
-            case Roles.ADMIN:
-                this.modules
-                        .add(new AdminController(view, currentUser, commonProductModel, commonSalesModel, userModel));
+            case ADMIN:
+                this.modules.add(new AdminController(view, currentUser, commonProductModel, commonSalesModel, userModel));
                 break;
-            case Roles.SALES:
+            case SALES:
                 this.modules.add(new SalesController(view, currentUser, commonProductModel, commonSalesModel));
                 break;
-            case Roles.PRODUCTION:
+            case PRODUCTION:
                 this.modules.add(new ManufactureController(view, currentUser, new ManufactureModel()));
                 break;
         }
