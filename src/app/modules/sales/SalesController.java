@@ -27,32 +27,57 @@ public class SalesController implements Module {
     private void handleOption(int option) {
         switch (option) {
             case 1:
-                List<ProductModel> listProductsAvailable = productModel.listProductsAvailable();
-                salesView.showProductsAvailable(listProductsAvailable, Constants.SALES_REGISTER);
-                ProductModel product = salesView.findProductBySku(listProductsAvailable);
-                if (product != null) {
-                    int quantity = salesView.getProductQuantity();
-                    List<ProductModel> products = new ArrayList<>();
-                    products.add(product);
-                    SalesModel sale = new SalesModel(
-                            products,
-                            0.18,
-                            product.getSellPrice() * quantity,
-                            product.getSellPrice() * quantity * 0.18,
-                            (product.getSellPrice() * quantity) + (product.getSellPrice() * quantity * 0.18),
-                            this.currentUser);
-                    this.salesModel.addSale(sale);
-                    System.out.println("Venta creada: " + sale);
-                    System.out.println(this.salesModel.getSales());
-                }
-                salesView.showProductsAvailable(listProductsAvailable, Constants.SALES_REGISTER);
+                manageSale();
                 break;
             case 2:
-                System.out.println(Constants.SALES_CONSULTATION);
-                List<SalesModel> sales = salesModel.getSales();
-                salesView.showSales(sales, "Mis Ventas", 70541090);
+                showSales();
                 break;
         }
+    }
+
+    public void showSales() {
+        List<SalesModel> sales = salesModel.getSalesBySeller(currentUser.getDocumentNumber());
+
+        if (!sales.isEmpty()) {
+            salesView.showSales(sales, Constants.SALES_CONSULTATION);
+        } else {
+            System.out.println("No hay ventas registradas\n");
+        }
+    }
+
+    public void manageSale() {
+        List<ProductModel> productsAvailable = productModel.listProductsAvailable();
+        int productsQuantity = productsAvailable.size();
+
+        if (productsQuantity > 0) {
+            salesView.showProductsAvailable(productsAvailable, Constants.SALES_REGISTER);
+
+            ProductModel product = salesView.findProductBySku(productsAvailable);
+            if (product != null) {
+                int quantity = salesView.getProductQuantity();
+                SalesModel sale = generateSale(product, quantity);
+                this.salesModel.addSale(sale);
+                this.productModel.decreaseStock(product, quantity);
+                System.out.println("Venta registrada con éxito\n");
+            }
+
+        } else {
+            System.out.println("No hay productos disponibles para la venta\n");
+        }
+    }
+
+    public SalesModel generateSale(ProductModel product, int quantity) {
+        List<ProductModel> products = new ArrayList<>();
+        products.add(product);
+        double amount = product.getSellPrice() * quantity;
+        return new SalesModel(
+                products,
+                0.18,
+                amount,
+                amount * 0.18,
+                (amount) + (amount * 0.18),
+                this.currentUser
+        );
     }
 
     @Override

@@ -13,16 +13,26 @@ public class SalesModel {
     private double subTotal;
     private double igv;
     private double total;
-    private UserModel user;
+    private UserModel seller;
 
-    public SalesModel(List<ProductModel> products, double igvRate, double subTotal, double igv, double total,
-            UserModel user) {
+    public SalesModel(
+            List<ProductModel> products,
+            double igvRate,
+            double subTotal,
+            double igv,
+            double total,
+            UserModel seller
+    ) {
         this.products = products;
         this.igvRate = igvRate;
         this.subTotal = subTotal;
         this.igv = igv;
         this.total = total;
-        this.user = user;
+        this.seller = seller;
+    }
+
+    public List<ProductModel> getProducts() {
+        return products;
     }
 
     public SalesModel() {
@@ -37,8 +47,29 @@ public class SalesModel {
         this.sales.add(sale);
     }
 
+    public List<SalesModel> getSalesBySeller(int documentNumber) {
+        List<SalesModel> salesBySeller = new ArrayList<>();
+        for (SalesModel sale : sales) {
+            if (sale.seller.getDocumentNumber() == documentNumber) {
+                salesBySeller.add(sale);
+            }
+        }
+
+        return salesBySeller;
+    }
+
     public String getDetails() {
-        return "Detalles de la venta aqui";
+        String productsDetails = "";
+
+        for (ProductModel product : products) {
+            productsDetails += "\t" + product.productDetail();
+        }
+
+        return "Productos: \n" + productsDetails +
+                "Subtotal: S/ " + this.subTotal + "\n" +
+                "IGV: S/ " + this.igv + "\n" +
+                "Total: S/ " + this.total + "\n" +
+                "Vendedor: " + seller.getName() + " " + seller.getLastName() + "\n";
     }
 
 }

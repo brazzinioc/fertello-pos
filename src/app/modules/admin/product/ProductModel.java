@@ -29,7 +29,8 @@ public class ProductModel {
             Sizes size,
             int stock,
             Genders gender,
-            boolean isManufactured) {
+            boolean isManufactured
+    ) {
         this.color = color;
         this.gender = gender;
         this.isManufactured = isManufactured;
@@ -83,6 +84,14 @@ public class ProductModel {
         }
 
         return availableProducts;
+    }
+
+    public void decreaseStock(ProductModel product, int quantity) {
+        for (ProductModel productItem : this.products) {
+            if (productItem.getSku() == product.getSku()) {
+                productItem.setStock(productItem.getStock() - quantity);
+            }
+        }
     }
 
     public String productDetail() {

@@ -21,22 +21,24 @@ public class RouterController {
     private RouterView view;
     private RouterModel model;
     private UserModel currentUser;
+    private ProductModel commonProductModel;
+    private SalesModel commonSalesModel;
 
     public RouterController(RouterView view, RouterModel model, UserModel userModel) {
         this.view = view;
         this.model = model;
         this.modules = new ArrayList<>();
         this.userModel = userModel;
-
+        this.commonProductModel = new ProductModel();
+        this.commonSalesModel = new SalesModel();
     }
 
     private void handleModules(UserModel currentUser) {
-        ProductModel commonProductModel = new ProductModel();
-        SalesModel commonSalesModel = new SalesModel();
+        // ProductModel commonProductModel = new ProductModel();
+        // SalesModel commonSalesModel = new SalesModel();
         switch (currentUser.getRole()) {
             case ADMIN:
-                this.modules
-                        .add(new AdminController(view, currentUser, commonProductModel, commonSalesModel, userModel));
+                this.modules.add(new AdminController(view, currentUser, commonProductModel, commonSalesModel, userModel));
                 break;
             case SALES:
                 this.modules.add(new SalesController(view, currentUser, commonProductModel, commonSalesModel));
