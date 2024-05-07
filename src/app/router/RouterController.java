@@ -8,7 +8,7 @@ import app.interfaces.Module;
 import app.modules.admin.AdminController;
 import app.modules.admin.product.ProductModel;
 import app.modules.admin.users.UserModel;
-import app.modules.manufacture.ManufactureController;
+import app.modules.manufacture.manufactureController;
 import app.modules.manufacture.ManufactureModel;
 import app.modules.sales.SalesController;
 import app.modules.sales.SalesModel;
@@ -44,7 +44,7 @@ public class RouterController {
                 this.modules.add(new SalesController(view, currentUser, commonProductModel, commonSalesModel));
                 break;
             case PRODUCTION:
-                this.modules.add(new ManufactureController(view, currentUser, new ManufactureModel()));
+                this.modules.add(new manufactureController(view, currentUser,commonProductModel));
                 break;
         }
     }

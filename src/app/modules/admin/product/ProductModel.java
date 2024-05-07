@@ -83,10 +83,23 @@ public class ProductModel {
         for (ProductModel product : this.products) {
             if (product.getStock() > 0 && product.isManufactured()) {
                 availableProducts.add(product);
-            }
-        }
 
+                }
+            }
         return availableProducts;
+    }
+
+    public List<ProductModel> listProductsToManufacture() {
+        List<ProductModel> productsToManufacture = new ArrayList<>();
+
+        for (ProductModel product : this.products) {
+        if (product.isManufactured()==false) {
+                productsToManufacture.add(product);
+
+                }
+
+            }
+        return productsToManufacture;
     }
 
     public void decreaseStock(ProductModel product, int quantity) {
