@@ -24,14 +24,14 @@ public class Validation {
     }
 
     public static String validateString(Scanner scanner, String input) {
-        System.out.print(input + ": ");
-        String value = scanner.nextLine();
-        while (value.trim().isEmpty() || !value.matches("[a-zA-Z]+")) {
-            System.out.print(input + " no puede estar vacío y debe contener solo letras. Inténtalo de nuevo: ");
-            value = scanner.nextLine();
-        }
-        return value;
+    System.out.print(input + ": ");
+    String value = scanner.nextLine();
+    while (value.trim().isEmpty() || !value.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\\s]+$")) {
+        System.out.print(input + " no puede estar vacío y debe contener solo letras con tildes y espacios. Inténtalo de nuevo: ");
+        value = scanner.nextLine();
     }
+    return value;
+}
 
     public static int validateNumberLength(Scanner scanner, String input, int length) {
         System.out.print(input + ": ");
