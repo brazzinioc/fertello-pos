@@ -56,9 +56,8 @@ public class ReportView {
     public void showSellerSummary(UserModel seller, double totalSales, double commision) {
         System.out.println(
                 "Vendedor: " + seller.getName() + " " + seller.getLastName() + "\n" +
-                "Total de ventas: S/" +  String.format("%.2f", totalSales) + "\n" +
-                "Comisión(meta de S/2000): S/ " +  String.format("%.2f", commision)  + "\n"
-        );
+                        "Total de ventas: S/" + String.format("%.2f", totalSales) + "\n" +
+                        "Comisión(meta de S/2000): S/ " + String.format("%.2f", commision) + "\n");
     }
 
     public void showErrorMessage() {

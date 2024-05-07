@@ -2,9 +2,6 @@ package app.modules.admin.product;
 
 import java.util.List;
 
-import app.enums.Colors;
-import app.enums.Genders;
-import app.enums.Sizes;
 import app.interfaces.Module;
 import app.router.RouterView;
 import app.utils.Constants;
@@ -31,7 +28,8 @@ public class ProductController implements Module {
                 productView.showProductList(products, navigationRouteName(Constants.ADMIN_INVENTARY_PRODUCT));
                 break;
             case 2:
-                ProductModel newProduct = productView.createProduct(navigationRouteName(Constants.ADMIN_CREATE_PRODUCT));
+                ProductModel newProduct = productView
+                        .createProduct(navigationRouteName(Constants.ADMIN_CREATE_PRODUCT));
                 productModel.addProduct(newProduct);
                 break;
         }

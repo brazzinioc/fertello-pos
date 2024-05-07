@@ -31,24 +31,16 @@ public class ReportController implements Module {
         switch (option) {
             case 1:
                 List<SalesModel> sales = salesModel.getSales();
-
                 reportView.showSalesReport(navigationRouteName());
-
-                // Total de ventas
                 getTotalAmountSold(sales);
-
-                // Cantidad de productos vendidos
                 getTotalProductsSold(sales);
 
-                // Vendedor con más ventas
                 List<UserModel> sellers = getSellerWithSales(sales);
                 getSellerWithMostSales(sellers, sales);
 
-                // Producto mas vendido
                 List<ProductModel> productsSold = getProductsSold(sales);
                 getMostSoldProduct(productsSold, sales);
 
-                // Resumen por vendedor
                 showSummaryBySeller(sellers, sales);
                 break;
         }
@@ -59,7 +51,6 @@ public class ReportController implements Module {
         for (SalesModel sale : sales) {
             total += sale.getTotal();
         }
-
         reportView.showTotalAmountSold(total);
     }
 
@@ -68,40 +59,30 @@ public class ReportController implements Module {
         for (SalesModel sale : sales) {
             quantity += sale.getProductsQuantity();
         }
-
         reportView.showTotalProductsSold(quantity);
     }
 
-    // Filtra vendedodores con ventas
     private List<UserModel> getSellerWithSales(List<SalesModel> sales) {
         List<UserModel> sellers = new ArrayList<>();
 
         for (SalesModel sale : sales) {
-
             UserModel currentSale = sale.getSeller();
-
             boolean exists = false;
-
             for (UserModel seller : sellers) {
                 if (seller.getDocumentNumber() == currentSale.getDocumentNumber()) {
                     exists = true;
                 }
             }
-
             if (!exists) {
                 sellers.add(currentSale);
             }
-
         }
-
         return sellers;
     }
 
     private void getSellerWithMostSales(List<UserModel> sellers, List<SalesModel> sales) {
         UserModel sellerWithMostSales = null;
         int maxSales = 0;
-
-        // Cuenta total de ventas por vendedor
         for (UserModel seller : sellers) {
             int salesQuantity = 0;
             for (SalesModel sale : sales) {
@@ -109,43 +90,36 @@ public class ReportController implements Module {
                     salesQuantity += 1;
                 }
             }
-
             if (salesQuantity > maxSales) {
                 maxSales = salesQuantity;
                 sellerWithMostSales = seller;
             }
         }
-
         if (sellerWithMostSales != null) {
-            reportView.showSellerWithMostSales(sellerWithMostSales.getName(), sellerWithMostSales.getLastName(), maxSales);
+            reportView.showSellerWithMostSales(sellerWithMostSales.getName(), sellerWithMostSales.getLastName(),
+                    maxSales);
         } else {
             reportView.showSellerWithMostSales(null, null, maxSales);
         }
     }
 
-    // Filtra productos vendidos
     private List<ProductModel> getProductsSold(List<SalesModel> sales) {
         List<ProductModel> products = new ArrayList<>();
 
         for (SalesModel sale : sales) {
             ProductModel currentProduct = sale.getProduct();
-
             boolean exists = false;
-
             for (ProductModel product : products) {
                 if (currentProduct.getSku() == product.getSku()) {
                     exists = true;
                 }
             }
-
             if (!exists) {
                 products.add(currentProduct);
             }
         }
-
         return products;
     }
-
 
     private void getMostSoldProduct(List<ProductModel> productsSold, List<SalesModel> sales) {
         ProductModel mostSoldProduct = null;
@@ -159,47 +133,38 @@ public class ReportController implements Module {
                     quantity += sale.getProductsQuantity();
                 }
             }
-
             if (quantity > maxQuantity) {
                 maxQuantity = quantity;
                 mostSoldProduct = product;
             }
         }
-
         if (mostSoldProduct != null) {
             reportView.showMostSoldProduct(mostSoldProduct.productDetail(), maxQuantity);
         } else {
-            reportView.showMostSoldProduct(null,  maxQuantity);
+            reportView.showMostSoldProduct(null, maxQuantity);
         }
     }
 
     private void showSummaryBySeller(List<UserModel> sellers, List<SalesModel> sales) {
         reportView.showSellerSummaryTitle();
-
         if (sellers.isEmpty()) {
             reportView.showErrorMessage();
         } else {
-
             for (UserModel seller : sellers) {
-
                 double total = 0;
                 double commission = 0;
-
                 for (SalesModel sale : sales) {
                     if (sale.getSeller().getDocumentNumber() == seller.getDocumentNumber()) {
                         total += sale.getTotal();
                     }
                 }
-
                 if (total > 2000) {
                     commission = total * 0.20;
                 }
-
                 reportView.showSellerSummary(seller, total, commission);
             }
         }
     }
-
 
     @Override
     public void start() {
