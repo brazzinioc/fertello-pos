@@ -20,7 +20,7 @@ public class ReportView {
     }
 
     public void showTotalAmountSold(double totalAmountSold) {
-        System.out.println("\n\n1. Monto total de ventas:");
+        System.out.println("1. Monto total de ventas:");
         System.out.printf(" S/ %.2f ", totalAmountSold);
     }
 
