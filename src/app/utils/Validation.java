@@ -26,8 +26,8 @@ public class Validation {
     public static String validateString(Scanner scanner, String input) {
         System.out.print(input + ": ");
         String value = scanner.nextLine();
-        while (value.trim().isEmpty()) {
-            System.out.print(input + " no puede estar vacío. Inténtalo de nuevo: ");
+        while (value.trim().isEmpty() || !value.matches("[a-zA-Z]+")) {
+            System.out.print(input + " no puede estar vacío y debe contener solo letras. Inténtalo de nuevo: ");
             value = scanner.nextLine();
         }
         return value;

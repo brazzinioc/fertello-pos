@@ -37,7 +37,6 @@ public class SalesController implements Module {
 
     public void showSales() {
         List<SalesModel> sales = salesModel.getSalesBySeller(currentUser.getDocumentNumber());
-
         if (!sales.isEmpty()) {
             salesView.showSales(sales, Constants.SALES_CONSULTATION);
         } else {
@@ -51,7 +50,6 @@ public class SalesController implements Module {
 
         if (productsQuantity > 0) {
             salesView.showProductsAvailable(productsAvailable, Constants.SALES_REGISTER);
-
             ProductModel product = salesView.findProductBySku(productsAvailable);
             if (product != null) {
                 int quantity = salesView.getProductQuantity();
@@ -60,7 +58,6 @@ public class SalesController implements Module {
                 this.productModel.decreaseStock(product, quantity);
                 System.out.println("Venta registrada con éxito\n");
             }
-
         } else {
             System.out.println("No hay productos disponibles para la venta\n");
         }
