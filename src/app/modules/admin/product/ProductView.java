@@ -36,9 +36,9 @@ public class ProductView {
 
         int sku = Validation.validateNumberLength(scanner, "SKU", 4);
 
-        String name = Validation.validateString(scanner, "Nombre del producto");
+        String name = Validation.validateEmpty(scanner, "Nombre del producto");
 
-        String model = Validation.validateString(scanner, "Modelo");
+        String model = Validation.validateEmpty(scanner, "Modelo");
 
         System.out.print("Color: (R: " + Constants.RED + ", V: " + Constants.GREEN + ", A: " + Constants.BLUE + ", N: "
                 + Constants.BLACK + ", B: " + Constants.WHITE + "): ");
