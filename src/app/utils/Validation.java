@@ -23,6 +23,16 @@ public class Validation {
         return number;
     }
 
+public static String validateEmpty(Scanner scanner, String input) {
+    System.out.print(input + ": ");
+    String value = scanner.nextLine();
+    while (value.trim().isEmpty()) {
+        System.out.print(input + " no puede estar vacío. Inténtalo de nuevo: ");
+        value = scanner.nextLine();
+    }
+    return value;
+}
+
     public static String validateString(Scanner scanner, String input) {
     System.out.print(input + ": ");
     String value = scanner.nextLine();
