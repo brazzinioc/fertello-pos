@@ -24,7 +24,7 @@ public class ReportController implements Module {
     }
 
     private String navigationRouteName() {
-        return Constants.ADMIN_MODULE + " / " + Constants.ADMIN_REPORT_SALE;
+        return Constants.ADMIN_REPORT_SALE;
     }
 
     private void handleOption(int option) {
@@ -174,22 +174,29 @@ public class ReportController implements Module {
     }
 
     private void showSummaryBySeller(List<UserModel> sellers, List<SalesModel> sales) {
-        for (UserModel seller : sellers) {
+        reportView.showSellerSummaryTitle();
 
-            double total = 0;
-            double commission = 0;
+        if (sellers.isEmpty()) {
+            reportView.showErrorMessage();
+        } else {
 
-            for (SalesModel sale : sales) {
-                if (sale.getSeller().getDocumentNumber() == seller.getDocumentNumber()) {
-                    total += sale.getTotal();
+            for (UserModel seller : sellers) {
+
+                double total = 0;
+                double commission = 0;
+
+                for (SalesModel sale : sales) {
+                    if (sale.getSeller().getDocumentNumber() == seller.getDocumentNumber()) {
+                        total += sale.getTotal();
+                    }
                 }
-            }
 
-            if (total > 2000) {
-                commission = total * 0.20;
-            }
+                if (total > 2000) {
+                    commission = total * 0.20;
+                }
 
-            reportView.showSellerSummary(seller, total, commission);
+                reportView.showSellerSummary(seller, total, commission);
+            }
         }
     }
 

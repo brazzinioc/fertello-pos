@@ -20,34 +20,48 @@ public class ReportView {
     }
 
     public void showTotalAmountSold(double totalAmountSold) {
-        System.out.printf("Total vendido: S/ %.2f\n", totalAmountSold);
+        System.out.println("\n\n1. Monto total de ventas:");
+        System.out.printf(" S/ %.2f ", totalAmountSold);
     }
 
-
     public void showTotalProductsSold(int totalProductsSold) {
-        System.out.printf("Cantidad de productos vendidos: %d\n", totalProductsSold);
+        System.out.println("\n\n2. Total de productos vendidos:");
+        System.out.printf(" %d", totalProductsSold);
     }
 
     public void showSellerWithMostSales(String sellerName, String lastName, int totalSales) {
+        System.out.println("\n\n3. Vendedor con más ventas:");
+
         if (sellerName != null) {
-            System.out.printf("Vendedor con más ventas: %s %s, Total de ventas: %d\n", sellerName, lastName, totalSales);
+            System.out.printf(" %s %s, con %d ventas", sellerName, lastName, totalSales);
         } else {
-            System.out.println("No hay vendedor con más ventas\n");
+            System.out.println(" No hay vendedor con más venta");
         }
     }
 
-
     public void showMostSoldProduct(String productDetail, int totalSold) {
+        System.out.println("\n\n4. Producto más vendido:");
+
         if (productDetail != null) {
-            System.out.printf("Producto más vendido: %s, \n Total vendido: %d\n", productDetail, totalSold);
+            System.out.printf(" %s Unidades vendidas: %d ", productDetail, totalSold);
         } else {
-            System.out.println("No hay producto más vendido\n");
+            System.out.println(" No hay producto más vendido");
         }
+    }
+
+    public void showSellerSummaryTitle() {
+        System.out.println("\n\n5. Resumen por vendedor:");
     }
 
     public void showSellerSummary(UserModel seller, double totalSales, double commision) {
-        System.out.println("Vendedor: " + seller.getName() + " " + seller.getLastName() + "\n" +
-                "Total de ventas: S/" + totalSales + "\n" +
-                "Comisión(meta de S/2000): S/ " + commision + "\n");
+        System.out.println(
+                "Vendedor: " + seller.getName() + " " + seller.getLastName() + "\n" +
+                "Total de ventas: S/" +  String.format("%.2f", totalSales) + "\n" +
+                "Comisión(meta de S/2000): S/ " +  String.format("%.2f", commision)  + "\n"
+        );
+    }
+
+    public void showErrorMessage() {
+        System.out.println("No hay datos para mostrar reporte\n");
     }
 }

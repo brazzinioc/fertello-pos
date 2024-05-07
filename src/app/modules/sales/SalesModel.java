@@ -79,11 +79,8 @@ public class SalesModel {
     }
 
     public String getDetails() {
-        // String productsDetails = "";
-//        for (ProductModel product : products) {
-//            productsDetails += product.productSales();
-//        }
-        return "Productos: \n" +  product.productSales() +
+        return "Producto: " +  product.productSales() +
+                "Cantidad: " + this.productsQuantity + "\n" +
                 "Subtotal: S/ " + String.format("%.2f", this.subTotal) + "\n" +
                 "IGV: S/ " + String.format("%.2f", this.IGV) + "\n" +
                 "Total: S/ " + String.format("%.2f", this.total) + "\n" +
