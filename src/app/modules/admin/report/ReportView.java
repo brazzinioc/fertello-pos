@@ -20,18 +20,15 @@ public class ReportView {
     }
 
     public void showTotalAmountSold(double totalAmountSold) {
-        System.out.println("1. Monto total de ventas:");
-        System.out.printf(" S/ %.2f ", totalAmountSold);
+        System.out.println("1. Monto total de ventas: S/ " + String.format("%.2f", totalAmountSold));
     }
 
     public void showTotalProductsSold(int totalProductsSold) {
-        System.out.println("\n\n2. Total de productos vendidos:");
-        System.out.printf(" %d", totalProductsSold);
+        System.out.printf("\n\n2. Total de productos vendidos: %d", totalProductsSold);
     }
 
     public void showSellerWithMostSales(String sellerName, String lastName, int totalSales) {
         System.out.println("\n\n3. Vendedor con más ventas:");
-
         if (sellerName != null) {
             System.out.printf(" %s %s, con %d ventas", sellerName, lastName, totalSales);
         } else {
@@ -41,7 +38,6 @@ public class ReportView {
 
     public void showMostSoldProduct(String productDetail, int totalSold) {
         System.out.println("\n\n4. Producto más vendido:");
-
         if (productDetail != null) {
             System.out.printf(" %s Unidades vendidas: %d ", productDetail, totalSold);
         } else {
