@@ -76,6 +76,7 @@ public class SalesController implements Module {
                 amount,
                 amount * 0.18,
                 (amount) + (amount * 0.18),
+                quantity,
                 this.currentUser
         );
     }

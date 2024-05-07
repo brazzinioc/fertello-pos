@@ -54,6 +54,10 @@ public class ProductModel {
         return sku;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public double getSellPrice() {
         return sellPrice;
     }

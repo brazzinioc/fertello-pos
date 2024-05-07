@@ -13,6 +13,7 @@ public class SalesModel {
     private double subTotal;
     private double igv;
     private double total;
+    private int productsQuantity;
     private UserModel seller;
 
     public SalesModel(
@@ -21,6 +22,7 @@ public class SalesModel {
             double subTotal,
             double igv,
             double total,
+            int productsQuantity,
             UserModel seller
     ) {
         this.products = products;
@@ -33,6 +35,18 @@ public class SalesModel {
 
     public List<ProductModel> getProducts() {
         return products;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public UserModel getSeller() {
+        return seller;
+    }
+
+    public int getProductsQuantity() {
+        return productsQuantity;
     }
 
     public SalesModel() {
