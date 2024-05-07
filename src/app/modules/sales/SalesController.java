@@ -64,11 +64,12 @@ public class SalesController implements Module {
     }
 
     public SalesModel generateSale(ProductModel product, int quantity) {
-        List<ProductModel> products = new ArrayList<>();
-        products.add(product);
+        // List<ProductModel> products = new ArrayList<>();
+        // products.add(product);
         double amount = product.getSellPrice() * quantity;
         return new SalesModel(
-                products,
+                // products,
+                product,
                 0.18,
                 amount,
                 amount * 0.18,

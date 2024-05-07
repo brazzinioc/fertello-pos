@@ -9,7 +9,8 @@ import app.modules.admin.users.UserModel;
 public class SalesModel {
     private List<SalesModel> sales;
     private double IGVRate;
-    private List<ProductModel> products;
+    // private List<ProductModel> products;
+    private ProductModel product;
     private double subTotal;
     private double IGV;
     private double total;
@@ -17,23 +18,30 @@ public class SalesModel {
     private UserModel seller;
 
     public SalesModel(
-            List<ProductModel> products,
+            // List<ProductModel> products,
+            ProductModel product,
             double IGVRate,
             double subTotal,
             double IGV,
             double total,
             int productsQuantity,
             UserModel seller) {
-        this.products = products;
+        // this.products = products;
+        this.product = product;
         this.IGVRate = IGVRate;
         this.subTotal = subTotal;
         this.IGV = IGV;
         this.total = total;
+        this.productsQuantity = productsQuantity;
         this.seller = seller;
     }
 
-    public List<ProductModel> getProducts() {
-        return products;
+//    public List<ProductModel> getProducts() {
+//        return products;
+//    }
+
+    public ProductModel getProduct() {
+        return product;
     }
 
     public double getTotal() {
@@ -71,11 +79,11 @@ public class SalesModel {
     }
 
     public String getDetails() {
-        String productsDetails = "";
-        for (ProductModel product : products) {
-            productsDetails += product.productSales();
-        }
-        return "Productos: \n" + productsDetails +
+        // String productsDetails = "";
+//        for (ProductModel product : products) {
+//            productsDetails += product.productSales();
+//        }
+        return "Productos: \n" +  product.productSales() +
                 "Subtotal: S/ " + String.format("%.2f", this.subTotal) + "\n" +
                 "IGV: S/ " + String.format("%.2f", this.IGV) + "\n" +
                 "Total: S/ " + String.format("%.2f", this.total) + "\n" +

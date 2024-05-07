@@ -66,7 +66,7 @@ public class ReportController implements Module {
     private void getTotalProductsSold(List<SalesModel> sales) {
         int quantity = 0;
         for (SalesModel sale : sales) {
-            quantity += sale.getProducts().size();
+            quantity += sale.getProductsQuantity();
         }
 
         reportView.showTotalProductsSold(quantity);
@@ -75,8 +75,23 @@ public class ReportController implements Module {
     // Filtra vendedodores con ventas
     private List<UserModel> getSellerWithSales(List<SalesModel> sales) {
         List<UserModel> sellers = new ArrayList<>();
+
         for (SalesModel sale : sales) {
-            sellers.add(sale.getSeller());
+
+            UserModel currentSale = sale.getSeller();
+
+            boolean exists = false;
+
+            for (UserModel seller : sellers) {
+                if (seller.getDocumentNumber() == currentSale.getDocumentNumber()) {
+                    exists = true;
+                }
+            }
+
+            if (!exists) {
+                sellers.add(currentSale);
+            }
+
         }
 
         return sellers;
@@ -111,8 +126,21 @@ public class ReportController implements Module {
     // Filtra productos vendidos
     private List<ProductModel> getProductsSold(List<SalesModel> sales) {
         List<ProductModel> products = new ArrayList<>();
+
         for (SalesModel sale : sales) {
-            products.addAll(sale.getProducts());
+            ProductModel currentProduct = sale.getProduct();
+
+            boolean exists = false;
+
+            for (ProductModel product : products) {
+                if (currentProduct.getSku() == product.getSku()) {
+                    exists = true;
+                }
+            }
+
+            if (!exists) {
+                products.add(currentProduct);
+            }
         }
 
         return products;
@@ -125,11 +153,10 @@ public class ReportController implements Module {
 
         for (ProductModel product : productsSold) {
             int quantity = 0;
+
             for (SalesModel sale : sales) {
-                for (ProductModel productSold : sale.getProducts()) {
-                    if (productSold.getSku() == product.getSku()) {
-                        quantity += sale.getProductsQuantity();
-                    }
+                if (sale.getProduct().getSku() == product.getSku()) {
+                    quantity += sale.getProductsQuantity();
                 }
             }
 
@@ -148,8 +175,10 @@ public class ReportController implements Module {
 
     private void showSummaryBySeller(List<UserModel> sellers, List<SalesModel> sales) {
         for (UserModel seller : sellers) {
+
             double total = 0;
             double commission = 0;
+
             for (SalesModel sale : sales) {
                 if (sale.getSeller().getDocumentNumber() == seller.getDocumentNumber()) {
                     total += sale.getTotal();
