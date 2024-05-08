@@ -1,21 +1,60 @@
 package app.modules.manufacture;
 
+import java.util.List;
+
 import app.interfaces.Module;
 import app.modules.admin.product.ProductModel;
 import app.modules.admin.users.UserModel;
+import app.modules.sales.SalesModel;
 import app.router.RouterView;
 import app.utils.Constants;
 
-import java.util.List;
-
-public class manufactureController implements Module {
+public class ManufactureController implements Module {
     private RouterView view;
     private ManufactureModel manufactureModel;
+    private ManufactureView manufactureView;
     private ProductModel productModel;
-    public manufactureController(RouterView view, UserModel currentUser, ProductModel productModel, ManufactureModel manufactureModel) {
+
+    public ManufactureController(RouterView view, UserModel currentUser, ProductModel productModel,
+            ManufactureModel manufactureModel) {
         this.view = view;
         this.manufactureModel = manufactureModel;
+        this.manufactureView = new ManufactureView();
         this.productModel = productModel;
+    }
+
+    // Method to start manufacturing a product
+    public void startManufacturing(int productId) {
+        manufactureModel.startManufacturing(productId);
+    }
+
+    // Method to get the list of manufactured products
+    public List<String> obtenerProductosFabricados() {
+        return manufactureModel.getManufacturedProducts();
+    }
+
+    // Method to update the view with the list of manufactured products
+    public void updateView() {
+        view.displayManufacturedProducts(manufactureModel.getManufacturedProducts());
+    }
+
+    public void manageProduction() {
+        List<ProductModel> productsAvailable = productModel.listProductsAvailable();
+        int productsQuantity = productsAvailable.size();
+
+        if (productsQuantity > 0) {
+            manufactureView.showProductsAvailable(productsAvailable, Constants.SALES_REGISTER);
+            ProductModel product = salesView.findProductBySku(productsAvailable);
+            if (product != null) {
+                int quantity = manufactureView.getProductQuantity();
+                SalesModel sale = generateSale(product, quantity);
+                this.manufactureModel.addSale(sale);
+                this.productModel.decreaseStock(product, quantity);
+                System.out.println("Venta registrada con éxito\n");
+            }
+        } else {
+            System.out.println("No hay productos disponibles para la venta\n");
+        }
     }
 
     private void handleOption(int option) {
@@ -42,30 +81,5 @@ public class manufactureController implements Module {
             option = view.showModules(moduleName, moduleItems);
             handleOption(option);
         } while (option != 0);
-    }
-}
-
-class ManufactureController {
-    private final ManufactureModel model;
-    private final ManufactureView view;
-
-
-    public ManufactureController(ManufactureModel model, ManufactureView view) {
-        this.model = model;
-        this.view = view;
-    }
-
-    // Método para iniciar la fabricación de un producto
-    public void startManufacturing(int productId) {
-        model.startManufacturing(productId);
-    }
-
-    // Método para obtener la lista de productos fabricados
-    public List<String> obtenerProductosFabricados() {
-        return model.getManufacturedProducts();
-    }
-    // Método para actualizar la vista con la lista de productos fabricados
-    public void updateView() {
-        view.displayManufacturedProducts(model.getManufacturedProducts());
     }
 }

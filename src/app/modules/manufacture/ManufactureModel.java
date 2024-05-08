@@ -1,30 +1,19 @@
 package app.modules.manufacture;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import app.modules.admin.product.ProductModel;
+
 public class ManufactureModel {
-    public void startManufacturing(int productId) {
+    private List<ProductModel> manufacturedProducts;
+
+    public ManufactureModel() {
+        this.manufacturedProducts = new ArrayList<>();
     }
 
-    public List<String> getManufacturedProducts() {
-        return List.of();
-    }
-}
-class manufactureModel {
-    private List<String> manufacturedProducts;
-
-    public void ManufactureModel() {
-        this.manufacturedProducts = java.util.Collections.emptyList() ;
-    }
-
-    // Método para iniciar la fabricación de un producto
-    public void startManufacturing(int productId) {
-        // Lógica para fabricar el producto y agregarlo a la lista de productos fabricados
-        manufacturedProducts.add("Producto " + productId);
-    }
-
-    // Método para obtener la lista de productos fabricados
-    public List<String> getManufacturedProducts() {
+    public List<ProductModel> getManufacturedProducts() {
         return manufacturedProducts;
     }
+
 }

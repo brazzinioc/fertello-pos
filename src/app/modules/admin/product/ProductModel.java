@@ -84,8 +84,8 @@ public class ProductModel {
             if (product.getStock() > 0 && product.isManufactured()) {
                 availableProducts.add(product);
 
-                }
             }
+        }
         return availableProducts;
     }
 
@@ -93,12 +93,11 @@ public class ProductModel {
         List<ProductModel> productsToManufacture = new ArrayList<>();
 
         for (ProductModel product : this.products) {
-        if (product.isManufactured()==false) {
+            if (product.isManufactured() == false) {
                 productsToManufacture.add(product);
-
-                }
-
             }
+
+        }
         return productsToManufacture;
     }
 

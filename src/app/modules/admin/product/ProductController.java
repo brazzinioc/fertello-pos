@@ -2,9 +2,6 @@ package app.modules.admin.product;
 
 import java.util.List;
 
-import app.enums.Colors;
-import app.enums.Genders;
-import app.enums.Sizes;
 import app.interfaces.Module;
 import app.router.RouterView;
 import app.utils.Constants;

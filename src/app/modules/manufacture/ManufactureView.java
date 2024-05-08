@@ -9,7 +9,10 @@ public class ManufactureView {
     // Método para mostrar la lista de productos fabricados en la consola
     public void displayManufacturedProducts(List<String> products) {
         System.out.println("Productos fabricados:");
-        for (String product : products) System.out.println(product);}}
+        for (String product : products)
+            System.out.println(product);
+    }
+}
 
 class manufactureView {
     // Método para mostrar la lista de productos fabricados en la consola
